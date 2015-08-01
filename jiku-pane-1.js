@@ -26,7 +26,14 @@ if (Meteor.isClient) {
       spriteMaxHeight = window.innerHeight;
       windowRatio = window.innerWidth / window.innerHeight;
 
-      windowRatio >= spriteRatio ? (sprite.width = spriteMaxWidth, sprite.height = spriteMaxWidth / spriteRatio) : (sprite.height = spriteMaxHeight, sprite.width = spriteMaxHeight * spriteRatio);
+      if (windowRatio >= spriteRatio)
+      {
+        sprite.width = spriteMaxWidth;
+        sprite.height = spriteMaxWidth / spriteRatio;
+      } else {
+        sprite.height = spriteMaxHeight;
+        sprite.width = spriteMaxHeight * spriteRatio;
+      }
 
       renderer.resize(window.innerWidth, window.innerHeight);
     }
