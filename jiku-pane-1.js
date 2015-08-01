@@ -3,18 +3,34 @@ if (Meteor.isClient) {
     var renderer = new PIXI.WebGLRenderer(960, 480);
     document.getElementById('pane').appendChild(renderer.view);
     var stage = new PIXI.Container();
-    var texture = PIXI.Texture.fromImage('http://i.imgur.com/3akVAln.jpg');
-    var sprite = new PIXI.Sprite(texture);
+    var texture = undefined;
+    var sprite = undefined;
 
-    sprite.anchor.x = sprite.anchor.y = 0;
-    // sprite.anchor.x = sprite.anchor.y = 0.5;
-    sprite.position.x = sprite.position.y = 0;
-    sprite.scale.x = sprite.scale.y = 1;
+    var loader = PIXI.loader;
+    loader.add('skyscraper', 'http://i.imgur.com/3akVAln.jpg');
+    loader.add('legs', 'http://i.imgur.com/pZOZu06.jpg');
+    loader.once('complete', function(loader, resources) { init(); });
+    loader.load();
 
-    sprite.interactive = true;
-    sprite.on('mousemove', onMove).on('touchmove', onMove);
+    var active = false;
 
-    var active = true;
+    var init = function()
+    {
+      texture = loader.resources['legs'].texture;
+      sprite = new PIXI.Sprite(texture);
+
+      sprite.anchor.x = sprite.anchor.y = 0;
+      sprite.position.x = sprite.position.y = 0;
+      sprite.scale.x = sprite.scale.y = 1;
+
+      sprite.interactive = true;
+      sprite.on('mousemove', onMove).on('touchmove', onMove);
+
+      resize();
+      stage.addChild(sprite);
+
+      active = true;
+    };
 
     var resize = function () {
       spriteResize();
@@ -40,10 +56,8 @@ if (Meteor.isClient) {
 
     };
 
-    // Add listeners for canvas scaling with window resizing and device rotation
     window.addEventListener('resize', resize);
     window.addEventListener('deviceOrientation', resize);
-    resize(); // Initial call...
 
     function onMove(event){
       var local = event.target; // this
@@ -59,8 +73,6 @@ if (Meteor.isClient) {
         this.position.y -= yChange; // Toggle between += and -= based on?
       }
     }
-
-    stage.addChild(sprite);
 
     animate();
     function animate() {
