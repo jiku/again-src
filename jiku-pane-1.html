@@ -3,12 +3,9 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  {{> pane}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="pane">
+  <div id="pane" style="position: absolute; z-index: 1;"></div>
 </template>
