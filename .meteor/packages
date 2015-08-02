@@ -9,3 +9,4 @@ autopublish
 insecure
 fds:pixijs
 webapp
+fds:threejs
