@@ -4,8 +4,15 @@
 
 <body>
   {{> pane}}
+  {{> soundcloud}}
 </body>
 
 <template name="pane">
   <div id="pane" style="position: absolute; z-index: 1;"></div>
+</template>
+
+<template name="soundcloud">
+  <div id="soundcloud" style="position: absolute; z-index: 2;">
+    <a href="http://soundcloud.com/jiku" class="float"><img src="https://w.soundcloud.com/icon/assets/images/white_transparent_32-94fc761.png" /></a>
+  </div>
 </template>
