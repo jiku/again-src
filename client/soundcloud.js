@@ -1,6 +1,10 @@
-Template.soundcloud.rendered = function()
-{
-  (function() {
+Template.soundcloud.onCreated = Template.soundcloud.created = function() {
+  console.log("holy shit why nothing...");
+  var onPlay = function(track) {
+    console.log('Listening custom event', track); // Should contain what track to play, etc...
+    findTrack();
+  };
+  SoundEvent.on('play', onPlay);
     var AudioContext;
     var audio;
     var audioContext;
@@ -31,7 +35,8 @@ Template.soundcloud.rendered = function()
       request.send(null);
     }
 
-    var clientParameter = "client_id=3b2585ef4a5eff04935abe84aad5f3f3"
+    var clientParameter = "client_id=5ae0c6ffd01e8b8580395dd8cfaa1e0f"
+
     var trackPermalinkUrl = "https://soundcloud.com/jiku/priss";
 
     function findTrack() {
@@ -42,6 +47,8 @@ Template.soundcloud.rendered = function()
       });
     };
 
-    findTrack();
-  })();
+}
+
+Template.soundcloud.onDestroyed = Template.soundcloud.destroyed = function() {
+  SoundEvent.removeListener('play', onPlay);
 }
