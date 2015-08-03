@@ -1,14 +1,21 @@
 <head>
   <title>jiku-pane-1</title>
+
+  <script src="js/Detector.js"></script>
 </head>
 
 <body>
   {{> pane}}
   {{> soundcloud}}
+  {{> particles}}
 </body>
 
 <template name="pane">
   <div id="pane" style="position: absolute; z-index: 1;"></div>
+</template>
+
+<template name="particles">
+  <div id="particles" style="position: absolute; z-index: 2; pointer-events: none;"></div>
 </template>
 
 <template name="soundcloud">
