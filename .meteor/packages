@@ -10,3 +10,4 @@ insecure
 fds:pixijs
 webapp
 fds:threejs
+raix:eventemitter
