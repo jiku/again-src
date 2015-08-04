@@ -1,5 +1,5 @@
 <head>
-  <title>jiku-pane-1</title>
+  <title>jiku - «Again»</title>
 
   <script src="js/Detector.js"></script>
 </head>
@@ -7,8 +7,19 @@
 <body>
   {{> pane}}
   {{> soundcloud}}
+  {{> intro}}
   {{> particles}}
 </body>
+
+<template name="intro">
+  <div style="position: fixed; z-index: 4; width: 100%; height: 100%;">
+    <div id="intro">
+      <header class="disable-selection">again</header><!--br/>
+      <br/>
+      <subheader class="disable-selection">PRESS TO START/STOP MUSIC</subheader-->
+    </div>
+  </div>
+</template>
 
 <template name="pane">
   <div id="pane" style="position: absolute; z-index: 1;"></div>
@@ -19,7 +30,7 @@
 </template>
 
 <template name="soundcloud">
-  <div id="soundcloud" style="position: absolute; z-index: 2;">
+  <div id="soundcloud" style="position: absolute; z-index: 3;">
     <a href="http://soundcloud.com/jiku" class="float"><img src="https://w.soundcloud.com/icon/assets/images/white_transparent_32-94fc761.png" /></a>
   </div>
 </template>

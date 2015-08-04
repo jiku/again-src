@@ -1,3 +1,2 @@
 if (Meteor.isClient) {
-    }
 }

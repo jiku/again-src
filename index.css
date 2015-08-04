@@ -1,0 +1,91 @@
+@font-face {
+  font-family: jikutypePixel;
+  src:
+    url('jikutype-001-Pixel.woff2') format('woff2'),
+    url('jikutype-001-Pixel.woff') format('woff');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#intro {
+}
+
+html, body {
+  height:100%;
+  flex-direction: column;
+}
+body {
+  background-color: #000;
+}
+#intro {
+  height:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* cursor: url(images/cursor.png) x y, auto; */
+
+  -webkit-animation: fadein 4s linear forwards;
+  animation: fadein 4s linear forwards;
+}
+
+.fadein {
+  -webkit-animation: fadein 4s linear forwards;
+  animation: fadein 4s linear forwards;
+}
+
+.fadeout {
+  -webkit-animation: fadeout 4s linear forwards;
+  animation: fadeout 4s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+@keyframes fadeinout {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#intro, header {
+  font-family: 'jikutypePixel';
+  font-size: 2em;
+  color: #fff;
+}
+
+#intro, subheader {
+  font-family: 'Menlo', sans-serif;
+  font-size: .5em;
+  color: #fff;
+}
+
+.disable-selection {
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer */
+   -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
