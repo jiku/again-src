@@ -2,7 +2,13 @@ Template.pane.rendered = function(){
   var renderer = PIXI.autoDetectRenderer(960, 480,{backgroundColor : 0x000000});
   document.getElementById('pane').appendChild(renderer.view);
   var stage = new PIXI.Container();
+  stage.visible = false;
   var texture = undefined;
+
+  var julia2 = undefined;
+  var fog1 = undefined;
+  var fog2 = undefined;
+  var fog3 = undefined;
 
   var loader = PIXI.loader;
   loader.add('Julia3Atest2', '/Julia3Atest2.jpg');
@@ -16,37 +22,34 @@ Template.pane.rendered = function(){
 
   var init = function()
   {
-    var julia2 = new PIXI.Sprite(loader.resources['Julia3Atest2'].texture);
+    julia2 = new PIXI.Sprite(loader.resources['Julia3Atest2'].texture);
     spriteResize(julia2);
     julia2.interactive = true;
-    julia2.on('mousemove', onMove).on('touchmove', onMove);
     stage.addChild(julia2);
 
-    var fog1 = new PIXI.Sprite(loader.resources['fog1'].texture);
+    fog1 = new PIXI.Sprite(loader.resources['fog1'].texture);
     spriteResize(fog1)
     fog1.blendMode = PIXI.BLEND_MODES.SCREEN;
     fog1.alpha = 0.1;
     fog1.interactive = true;
-    fog1.on('mousemove', onMove).on('touchmove', onMove);
     stage.addChild(fog1);
 
-    var fog2 = new PIXI.Sprite(loader.resources['fog2'].texture);
+    fog2 = new PIXI.Sprite(loader.resources['fog2'].texture);
     spriteResize(fog2)
     fog2.blendMode = PIXI.BLEND_MODES.SCREEN;
     fog2.alpha = 0.3;
     fog2.interactive = true;
-    fog2.on('mousemove', onMove).on('touchmove', onMove);
     stage.addChild(fog2);
 
-    var fog3 = new PIXI.Sprite(loader.resources['fog3'].texture);
+    fog3 = new PIXI.Sprite(loader.resources['fog3'].texture);
     spriteResize(fog3)
     fog3.blendMode = PIXI.BLEND_MODES.SCREEN;
     fog3.alpha = 0.5;
     fog3.interactive = true;
-    fog3.on('mousemove', onMove).on('touchmove', onMove);
     stage.addChild(fog3);
 
     resizeRenderer();
+    fadeIn(stage);
 
     active = true;
   };
@@ -72,6 +75,23 @@ Template.pane.rendered = function(){
     }
   }
 
+  var fadeIn = function (target) {
+    target.alpha = 0;
+    target.visible = true;
+    new TWEEN.Tween(target)
+    .to({ alpha: 1 }, 5000)
+    .easing(TWEEN.Easing.Quadratic.Out) // See http://sole.github.io/tween.js/examples/03_graphs.html
+    .onComplete(enableInteractivity)
+    .start();
+  }
+
+  var enableInteractivity = function () { // Could have assets as list... changed with each state change... I.e. X1, X2, X3 in state Y1, X2, X3, X4 in state Y2.
+    julia2.on('mousemove', onMove).on('touchmove', onMove);
+    fog1.on('mousemove', onMove).on('touchmove', onMove);
+    fog2.on('mousemove', onMove).on('touchmove', onMove);
+    fog3.on('mousemove', onMove).on('touchmove', onMove);
+  }
+
   var resizeRenderer = function() {
     renderer.resize(window.innerWidth, window.innerHeight);
   }
@@ -94,8 +114,10 @@ Template.pane.rendered = function(){
   }
 
   animate();
-  function animate() {
+
+  function animate(time) {
     requestAnimationFrame(animate);
+    TWEEN.update(time);
     renderer.render(stage);
   }
 }
