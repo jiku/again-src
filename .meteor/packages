@@ -11,3 +11,4 @@ fds:pixijs
 webapp
 fds:threejs
 raix:eventemitter
+infinitedg:tween
