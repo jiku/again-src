@@ -4,7 +4,6 @@ Template.pane.rendered = function(){
   }
 
   var renderer = PIXI.autoDetectRenderer(960, 480,{backgroundColor : 0x000000});
-  resizeRenderer();
   document.getElementById('pane').appendChild(renderer.view);
   var stage = new PIXI.Container();
   stage.visible = false;
@@ -29,13 +28,11 @@ Template.pane.rendered = function(){
   {
     julia2 = new PIXI.Sprite(loader.resources['Julia3Atest2'].texture);
     julia2.name = "julia2";
-    spriteResize(julia2);
     julia2.interactive = true;
     stage.addChild(julia2);
 
     fog1 = new PIXI.Sprite(loader.resources['fog1'].texture);
     fog1.name = "fog1";
-    spriteResize(fog1)
     fog1.blendMode = PIXI.BLEND_MODES.SCREEN;
     fog1.alpha = 0.1;
     fog1.interactive = true;
@@ -43,7 +40,6 @@ Template.pane.rendered = function(){
 
     fog2 = new PIXI.Sprite(loader.resources['fog2'].texture);
     fog2.name = "fog2";
-    spriteResize(fog2)
     fog2.blendMode = PIXI.BLEND_MODES.SCREEN;
     fog2.alpha = 0.3;
     fog2.interactive = true;
@@ -51,13 +47,14 @@ Template.pane.rendered = function(){
 
     fog3 = new PIXI.Sprite(loader.resources['fog3'].texture);
     fog3.name = "fog3";
-    spriteResize(fog3)
     fog3.blendMode = PIXI.BLEND_MODES.SCREEN;
     fog3.alpha = 0.5;
     fog3.interactive = true;
     stage.addChild(fog3);
 
     fadeIn(stage);
+    resize(); // Initial resize
+
 
     active = true;
   };
