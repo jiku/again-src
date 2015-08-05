@@ -16,12 +16,12 @@ Template.pane.rendered = function(){
   var fog3 = undefined;
 
   var loader = PIXI.loader;
-  loader.add('Julia3Atest2', '/Julia3Atest2.jpg');
-  loader.add('fog1', '/fog1.jpg');
-  loader.add('fog2', '/smoke-texture-png-wallpaper-1.jpg');
-  loader.add('fog3', '/smoke-texture-png-wallpaper-1.jpg');
-  loader.once('complete', function(loader, resources) { init(); });
-  loader.load();
+  loader.add('Julia3Atest2', '/Julia3Atest2.jpg')
+  .add('fog1', '/fog1.jpg')
+  .add('fog2', '/smoke-texture-png-wallpaper-1.jpg')
+  .add('fog3', '/smoke-texture-png-wallpaper-1.jpg')
+  .once('complete', function(loader, resources) { init(); })
+  .load();
 
   var active = false;
 
