@@ -1,5 +1,6 @@
 Template.soundcloud.onCreated = Template.soundcloud.created = function() {
-  console.log("holy shit why nothing...");
+  SiteEvent.emit("componentState", { component: "SoundCloud", state: "ready" });
+
   var onPlay = function(track) {
     console.log('Listening custom event', track); // Should contain what track to play, etc...
     findTrack();

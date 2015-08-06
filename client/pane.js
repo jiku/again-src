@@ -57,6 +57,7 @@ Template.pane.rendered = function(){
 
 
     active = true;
+    SiteEvent.emit('componentState', { component: "PixiJS", state: "ready" }); // Sure everything is loaded??
   };
 
   var resize = function (event) { // onResize... i.e. event...

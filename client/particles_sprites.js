@@ -81,6 +81,7 @@ function init() {
 
   window.addEventListener( 'resize', onWindowResize, false );
 
+  SiteEvent.emit("componentState", { component: "ThreeJS", state: "ready" });
 }
 
 function onWindowResize() {
