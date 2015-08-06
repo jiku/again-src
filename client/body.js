@@ -1,6 +1,10 @@
 SoundEvent = new EventEmitter();
 SiteEvent = new EventEmitter();
 
+marked.setOptions({
+  breaks: true
+});
+
 Meteor.startup(function() {
   Session.setDefault("state", "init");
   Session.setDefault("statePixiJS", "unready");
