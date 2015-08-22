@@ -14,10 +14,6 @@ animate();
 
 function init() {
 
-  container = document.getElementById("particles");
-
-  document.body.appendChild( container );
-
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
   camera.position.z = 1000;
 
@@ -73,7 +69,7 @@ function init() {
   renderer.setClearColor( 0x000000, 0 ); // the default
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
-  container.appendChild( renderer.domElement );
+  $("div#particles").append(renderer.domElement);
 
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
   document.addEventListener( 'touchstart', onDocumentTouchStart, false );
