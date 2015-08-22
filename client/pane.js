@@ -103,8 +103,6 @@ Template.pane.rendered = function(){
     fog3.on('mousemove', onMove).on('touchmove', onMove);
   }
 
-  }
-
   window.addEventListener('resize', resize);
   window.addEventListener('deviceOrientation', resize);
 
