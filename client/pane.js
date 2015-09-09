@@ -1,3 +1,6 @@
+Template.pane.onCreated = Template.pane.created = function() {
+}
+
 Template.pane.rendered = function(){
   var resizeRenderer = function() {
     renderer.resize(window.innerWidth, window.innerHeight);
@@ -10,12 +13,15 @@ Template.pane.rendered = function(){
   var texture = undefined;
 
   var julia2 = undefined;
+  var julia2OffsetY = 150;
   var fog1 = undefined;
   var fog2 = undefined;
   var fog3 = undefined;
+  var scrolling = false;
 
   var loader = PIXI.loader;
-  loader.add('Julia3Atest2', '/Julia3Atest2.jpg')
+  loader.add('Julia3Atest2400x', '/1B2_long_title_2400p_mq.jpg')
+  .add('Julia3Atest2400xCosmic', '/Julia3Atest2400xCosmic.jpg')
   .add('fog1', '/fog1.jpg')
   .add('fog2', '/smoke-texture-png-wallpaper-1.jpg')
   .add('fog3', '/smoke-cloud-texture-wallpaper-2.jpg')
@@ -23,45 +29,42 @@ Template.pane.rendered = function(){
   .load();
 
   var active = false;
+  var interactive = false;
+  // var interactivityType = "move";
+  var interactivityType = "scroll"; // "scrollByPercentage";
 
   var init = function()
   {
-    julia2 = new PIXI.Sprite(loader.resources['Julia3Atest2'].texture);
+    julia2 = new PIXI.Sprite(loader.resources['Julia3Atest2400x'].texture);
     julia2.name = "julia2";
+    julia2.position.y = julia2OffsetY;
     julia2.alpha = 1;
     julia2.interactive = true;
     stage.addChild(julia2);
 
-    fog1 = new PIXI.Sprite(loader.resources['fog1'].texture);
-    fog1.name = "fog1";
-    fog1.blendMode = PIXI.BLEND_MODES.SCREEN;
-    fog1.alpha = 0.2;
-    fog1.interactive = true;
-    stage.addChild(fog1);
+    cosmic = new PIXI.Sprite(loader.resources['Julia3Atest2400xCosmic'].texture);
+    cosmic.name = "cosmic";
+    cosmic.blendMode = PIXI.BLEND_MODES.SCREEN;
+    cosmic.alpha = 1;
+    cosmic.interactive = true;
+    stage.addChild(cosmic);
 
-    fog2 = new PIXI.Sprite(loader.resources['fog2'].texture);
-    fog2.name = "fog2";
-    fog2.blendMode = PIXI.BLEND_MODES.SCREEN;
-    fog2.alpha = 0.4;
-    fog2.interactive = true;
-    stage.addChild(fog2);
-
-    fog3 = new PIXI.Sprite(loader.resources['fog3'].texture);
-    fog3.name = "fog3";
-    fog3.blendMode = PIXI.BLEND_MODES.SCREEN;
-    fog3.alpha = 0.1;
-    fog3.interactive = true;
-    stage.addChild(fog3);
-
-    fadeIn(stage);
-    resize(); // Initial resize
-
-
-    active = true;
-    SiteEvent.emit('componentState', { component: "PixiJS", state: "ready" }); // Sure everything is loaded??
+    SiteEvent.emit('componentState', { component: "PixiJS", state: "ready" });
+    SiteEvent.on('activate', onActivate);
   };
 
-  var resize = function (event) { // onResize... i.e. event...
+  var onActivate = function(event)
+  {
+    resize();
+
+    animate();
+
+    tweenTo(stage, { type: "fadeIn", time: 5 });
+
+    active = true;
+  }
+
+  var resize = function (event) {
     resizeRenderer();
     for (var i = 0; i < stage.children.length; i++ ) {
       spriteResize(stage.children[i]);
@@ -83,47 +86,87 @@ Template.pane.rendered = function(){
       sprite.width = spriteMaxHeight * spriteRatio;
     }
 
-    sprite.heightRatio = valueRatio(renderer.height, sprite.height); // VERY important to make other stuff... moveTo, etc, work...
+    sprite.heightRatio = valueRatio(renderer.height, sprite.height);
   }
 
-  var fadeIn = function (target) {
-    target.alpha = 0;
-    target.visible = true;
+  var tweenTo = function (target, data) {
+    if (data.type == "fadeIn") {
+      target.alpha = 0;
+      target.visible = true;
+      properties = { alpha: 1 };
+      easingType = TWEEN.Easing.Quadratic.Out;
+      cb = enableInteractivity;
+    }
     new TWEEN.Tween(target)
-    .to({ alpha: 1 }, 5000)
-    .easing(TWEEN.Easing.Quadratic.Out) // See http://sole.github.io/tween.js/examples/03_graphs.html
-    .onComplete(enableInteractivity)
+    .to(properties, data.time * 1000)
+    .easing(easingType)
+    .onComplete(cb)
     .start();
   }
 
-  var enableInteractivity = function () { // Could have assets as list... changed with each state change... I.e. X1, X2, X3 in state Y1, X2, X3, X4 in state Y2.
-    julia2.on('mousemove', onMove).on('touchmove', onMove);
-    fog1.on('mousemove', onMove).on('touchmove', onMove);
-    fog2.on('mousemove', onMove).on('touchmove', onMove);
-    fog3.on('mousemove', onMove).on('touchmove', onMove);
+  var onScroll = function(event) {
+    for (var i = 0; i < stage.children.length; i++ ) {
+      moveByPercentage(stage.children[i], stage.children[i].heightRatio, event);
+    }
+  }
+
+  var disableInteractivity = function () {
+    if (interactive) {
+      interactive = false;
+      console.log("Disabled interactive");
+      if (interactivityType = "scroll") {
+      } else if (interactivityType == "move") {
+        for (var i = 0; i < stage.children.length; i++ ) {
+          stage.children[i].removeListener('mousemove').removeListener('touchmove');
+        }
+      }
+    }
+  }
+  var enableInteractivity = function () {
+    if (!interactive) {
+      interactive = true;
+      console.log("Enabled interactive");
+      if (interactivityType = "scroll") {
+      } else if (interactivityType == "move") {
+        for (var i = 0; i < stage.children.length; i++ ) {
+          stage.children[i].on('mousemove', onMove).on('touchmove', onMove);
+        }
+      }
+    }
   }
 
   window.addEventListener('resize', resize);
   window.addEventListener('deviceOrientation', resize);
 
-  function onMove(event){
-    var local = event.target; // this
-    var global = event.data.global;
-
-    viewportAbsoluteTop = 0;
-    viewportAbsoluteBottom = renderer.height;
-
-    if (active && global.y > viewportAbsoluteTop && global.y < viewportAbsoluteBottom) {
-      var yRatio = (this.height - renderer.height) / renderer.height; // *height* stuff not really doing anything?... Find and use ratio of content to viewport (renderer? stage?)...
-      var yChange = (global.y * yRatio) + this.position.y; // Subtracts?
-      this.position.y -= yChange; // Toggle between += and -= based on?
-    }
+  function valueRatio(absoluteValue, relativeValue) {
+    return (relativeValue - absoluteValue) / absoluteValue;
+  }
+  function valueChange(absoluteValue, relativeValue, valueRatio) {
+    return (absoluteValue * valueRatio) + relativeValue;
   }
 
-  animate();
+  function moveByPercentage(target, valueRatio, percentage) {
+    var yChange = valueChange((window.innerHeight * percentage), target.position.y, valueRatio);
+    target.position.y = (target.position.y + julia2OffsetY) - yChange;
+  }
+
+  function moveTo(target, valueRatio, coordinates) {
+    var yChange = valueChange(coordinates.y, target.position.y, valueRatio);
+    target.position.y -= yChange;
+  }
+
+  function onMove(event){
+    moveTo(event.target, event.target.heightRatio, event.data.global);
+  }
+
+  $(window).scroll(function() { scrolling = true });
 
   function animate(time) {
     requestAnimationFrame(animate);
+    if (scrolling) {
+      scrolling = false;
+      onScroll(($(window).scrollTop() + $(window).height()) / $(document).outerHeight());
+    }
     TWEEN.update(time);
     renderer.render(stage);
   }
