@@ -2,35 +2,71 @@
   <title>jiku - «Again»</title>
 
   <script src="js/Detector.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/ScrollToPlugin.min.js"></script>
 </head>
 
-<body>
-  {{> pane}}
-  {{> soundcloud}}
-  {{> logo}}
-  {{> particles}}
-</body>
+<body class="disable-scroll">
+  <div id="container">
+    <div id="static" style="position: fixed; z-index: 500; width: 100%, height: 100%">
+      {{> pane}}
+      {{> soundcloud}}
+      {{> particles}}
+    </div>
 
-<template name="logo">
-  <div style="position: fixed; z-index: 4; width: 100%; height: 100%;">
-    <div id="logo">
-      <header class="disable-selection">again</header><!--br/>
-      <br/>
-      <subheader class="disable-selection">PRESS TO START/STOP MUSIC</subheader-->
+    {{> sections}}
+
+    <div id="staticFront" style="position: fixed; z-index: 2000;">
+      {{> fixedmenu }}
     </div>
   </div>
+</body>
+
+<template name="sections">
+  <sections>
+    <section id="top" class="fullBox disable-selection">{{> logo}}</section>
+    <subsection class="invisible disable-clicks disable-selection">
+      <section id="about" class="box">{{#markdown}}{{> about}}{{/markdown}}</section>
+      <section id="player" class="box">{{#markdown}}{{> player}}{{/markdown}}</section>
+      {{#if isDevEnvironment}}<section id="crappycrap" class="box">{{#markdown}}{{> crappycrap }}{{/markdown}}</section>{{/if}}
+      <section id="credits" class="box">{{#markdown}}{{> credits }}{{/markdown}}</section>
+      <section id="contribute" class="box">{{#markdown}}{{> contribute }}{{/markdown}}</section>
+      <section id="contact" class="box">{{#markdown}}{{> contact }}{{/markdown}}</section>
+      <section id="copyright" class="box">{{#markdown}}{{> copyright }}{{/markdown}}</section>
+    </subsection>
+    <section id="bottom" class="fullBox">{{> footer }}</section>
+  </sections>
+</template>
+
+<template name="logo">
+  <header class="center">again</header>
+</template>
+
+<template name="footer">
+  <footer class="center">Social media icons, visuals, etc...</footer>
+</template>
+
+<template name="fixedmenu">
+  <fixedmenu class="box invisible disable-clicks disable-selection">
+    <a id="about" href="#about">ABOUT</a> <br/>
+    <a id="player" href="#player">PLAYER</a> <br/>
+    {{#if isDevEnvironment}}<a id="crappycrap" href="#crappycrap">CRAPPYCRAP</a> <br/>{{/if}}
+    <a id="credits" href="#credits">CREDITS</a> <br/>
+    <a id="contribute" href="#contribute">CONTRIBUTE</a> <br/>
+    <a id="contact" href="#contact">CONTACT</a> <br/>
+    <a  id="copyright" href="#copyright">COPYRIGHT</a> <br/>
+  </fixedmenu>
 </template>
 
 <template name="pane">
-  <div id="pane" style="position: absolute; z-index: 1;"></div>
+  <div id="pane" style="position: fixed; z-index: 0; pointer-events: none;"></div>
 </template>
 
 <template name="particles">
-  <div id="particles" style="position: absolute; z-index: 2; pointer-events: none;"></div>
+  <div id="particles" style="position: fixed; z-index: 200; pointer-events: none;"></div>
 </template>
 
 <template name="soundcloud">
-  <div id="soundcloud" style="position: absolute; z-index: 3;">
-    <a href="http://soundcloud.com/jiku" class="float"><img src="https://w.soundcloud.com/icon/assets/images/white_transparent_32-94fc761.png" /></a>
+<div id="soundcloud" style="position: absolute; z-index: 300;">
+<a href="http://soundcloud.com/jiku" class="float"><img src="https://w.soundcloud.com/icon/assets/images/white_transparent_32-94fc761.png" /></a>
   </div>
 </template>
