@@ -16,7 +16,7 @@
     {{> sections}}
 
     <div id="staticFront" style="position: fixed; z-index: 2000;">
-      {{> fixedmenu }}
+      {{> menu }}
     </div>
   </div>
 </body>
@@ -31,7 +31,6 @@
       <section id="credits" class="box">{{#markdown}}{{> credits }}{{/markdown}}</section>
       <section id="contribute" class="box">{{#markdown}}{{> contribute }}{{/markdown}}</section>
       <section id="contact" class="box">{{#markdown}}{{> contact }}{{/markdown}}</section>
-      <section id="copyright" class="box">{{#markdown}}{{> copyright }}{{/markdown}}</section>
     </subsection>
     <section id="bottom" class="fullBox">{{> footer }}</section>
   </sections>
@@ -45,16 +44,22 @@
   <footer class="center">Social media icons, visuals, etc...</footer>
 </template>
 
-<template name="fixedmenu">
-  <fixedmenu class="box invisible disable-clicks disable-selection">
-    <a id="about" href="#about">ABOUT</a> <br/>
-    <a id="player" href="#player">PLAYER</a> <br/>
-    {{#if isDevEnvironment}}<a id="crappycrap" href="#crappycrap">CRAPPYCRAP</a> <br/>{{/if}}
-    <a id="credits" href="#credits">CREDITS</a> <br/>
-    <a id="contribute" href="#contribute">CONTRIBUTE</a> <br/>
-    <a id="contact" href="#contact">CONTACT</a> <br/>
-    <a  id="copyright" href="#copyright">COPYRIGHT</a> <br/>
-  </fixedmenu>
+<template name="menu">
+  <menu class="invisible disable-clicks disable-selection">
+    <nav id="bt-menu" class="bt-menu">
+        <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+        <ul>
+        </ul>
+        <ul>
+          <li><a id="about" href="#about">about</a></li>
+          <li><a id="player" href="#player">player</a></li>
+          {{#if isDevEnvironment}}<li><a id="crappycrap" href="#crappycrap">crappycrap</a></li>{{/if}}
+          <li><a id="credits" href="#credits">credits</a></li>
+          <li><a id="contribute" href="#contribute">contribute</a></li>
+          <li><a id="contact" href="#contact">contact</a></li>
+        </ul>
+    </nav>
+  </menu>
 </template>
 
 <template name="pane">

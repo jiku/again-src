@@ -36,6 +36,8 @@ Template.body.onCreated = Template.body.created = ->
   SiteEvent.on 'componentState', onComponentState
 
 Template.body.onRendered = Template.body.rendered = ->
+  Meteor.borderMenu.init()
+
   sections = []
   if Session.get('isProdEnvironment')
     sections = [
@@ -94,7 +96,7 @@ Template.body.onRendered = Template.body.rendered = ->
     else if state == 'off'
       target.addClass('fadeout').removeClass('visible').addClass('invisible').addClass('disable-clicks').addClass 'disable-selection'
 
-  toggleFixedMenu = (selector, state) ->
+  toggleMenu = (selector, state) ->
     target = $(selector)
     if state == 'on'
       target.addClass('fadein').removeClass('invisible').addClass('visible').removeClass('disable-clicks').removeClass 'disable-selection'
@@ -105,6 +107,6 @@ Template.body.onRendered = Template.body.rendered = ->
     controller.scrollTo $(window).height() + $(document).outerHeight(), 6
     toggleScroll 'body', 'on'
     toggleSubSection 'subsection', 'on'
-    toggleFixedMenu 'fixedMenu', 'on'
+    toggleMenu 'Menu', 'on'
 
   SiteEvent.on 'activate', onActivate
