@@ -1,4 +1,4 @@
 public/
 *.*UNUSED
-client/static/
+client/**/*.md
 packages/
