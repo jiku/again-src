@@ -20,3 +20,5 @@ panphora:environment-template-helpers
 lalomartins:markd
 coffeescript
 qazuor:animated-border-menus
+react-runtime
+ccorcos:cjsx
