@@ -23,16 +23,14 @@
 
 <template name="sections">
   <sections>
-    <section id="top" class="fullBox disable-selection">{{> logo}}</section>
+    <section id="header" class="fullBox disable-selection">{{> logo}}</section>
     <subsection class="invisible disable-clicks disable-selection">
       <section id="about" class="box">{{#markdown}}{{> about}}{{/markdown}}</section>
       <section id="player" class="box">{{#markdown}}{{> player}}{{/markdown}}</section>
       {{#if isDevEnvironment}}<section id="crappycrap" class="box">{{#markdown}}{{> crappycrap }}{{/markdown}}</section>{{/if}}
-      <section id="credits" class="box">{{#markdown}}{{> credits }}{{/markdown}}</section>
       <section id="contribute" class="box">{{#markdown}}{{> contribute }}{{/markdown}}</section>
-      <section id="contact" class="box">{{#markdown}}{{> contact }}{{/markdown}}</section>
     </subsection>
-    <section id="bottom" class="fullBox">{{> footer }}</section>
+    <section id="footer" class="fullBox">{{> footer }}</section>
   </sections>
 </template>
 
@@ -54,12 +52,12 @@
         <ul>
         </ul>
         <ul>
+          <li><a id="header" href="#header"><i class="fa fa-arrow-up"></i></a></li>
           <li><a id="about" href="#about">about</a></li>
           <li><a id="player" href="#player">player</a></li>
           {{#if isDevEnvironment}}<li><a id="crappycrap" href="#crappycrap">crappycrap</a></li>{{/if}}
-          <li><a id="credits" href="#credits">credits</a></li>
           <li><a id="contribute" href="#contribute">contribute</a></li>
-          <li><a id="contact" href="#contact">contact</a></li>
+          <li><a id="footer" href="#footer"><i class="fa fa-arrow-down"></i></a></li>
         </ul>
     </nav>
   </menu>

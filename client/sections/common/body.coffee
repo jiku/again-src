@@ -41,26 +41,20 @@ Template.body.onRendered = Template.body.rendered = ->
   sections = []
   if Session.get('isProdEnvironment')
     sections = [
-      'top'
+      'header'
       'about'
       'player'
-      'credits'
       'contribute'
-      'contact'
-      'copyright'
-      'bottom'
+      'footer'
     ]
   else
     sections = [
-      'top'
+      'header'
       'about'
       'player'
       'crappycrap'
-      'credits'
       'contribute'
-      'contact'
-      'copyright'
-      'bottom'
+      'footer'
     ]
   i = 0
   while i < sections.length

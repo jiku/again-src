@@ -173,6 +173,10 @@
 	transition: color 0.2s;
 }
 
+.bt-menu ul li a i {
+  font-size: 8em;
+}
+
 .bt-menu ul li a:before {
 	display: none;
 }
