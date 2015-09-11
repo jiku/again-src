@@ -37,8 +37,8 @@ onPlay = (track) ->
   # Should contain what track to play, etc...
   findTrack()
 
-# Template.soundcloud.onCreated = Template.soundcloud.created = ->
-#   SoundEvent.on 'play', onPlay
+Template.soundcloud.onCreated = Template.soundcloud.created = ->
+  SoundEvent.on 'play', onPlay
 
 Template.soundcloud.onRendered = Template.soundcloud.rendered = ->
   SiteEvent.emit 'componentState',
