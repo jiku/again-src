@@ -9,7 +9,6 @@ autopublish
 insecure
 fds:pixijs
 webapp
-fds:threejs
 raix:eventemitter
 infinitedg:tween
 hipstersmoothie:scrollmagic
@@ -22,3 +21,4 @@ coffeescript
 qazuor:animated-border-menus
 react-runtime
 ccorcos:cjsx
+jiku:visualizers

@@ -17,7 +17,6 @@ ejson@1.0.6
 faisalman:ua-parser-js@0.7.9
 fastclick@1.0.3
 fds:pixijs@3.0.6_1
-fds:threejs@71.0.0_1
 geojson-utils@1.0.3
 hipstersmoothie:scrollmagic@0.0.9
 html-tools@1.0.4
@@ -27,6 +26,9 @@ id-map@1.0.3
 infinitedg:gsap@1.16.0
 infinitedg:tween@0.14.0
 insecure@1.0.3
+jiku:three@0.0.1
+jiku:three-extras@0.0.1
+jiku:visualizers@0.0.1
 jquery@1.11.3_2
 json@1.0.3
 lalomartins:markd@0.1.1
