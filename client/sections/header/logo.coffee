@@ -8,5 +8,6 @@ Template.logo.events 'click': (event) ->
     SiteEvent.emit 'activate', {}
     # if (Session.get('isProdEnvironment'))
     # {
-    SoundEvent.emit 'play', data: 'Play «Priss».' if Session.get('isProdEnvironment')
+    SoundEvent.emit 'play', data: 'Play «Priss».'
+    # SoundEvent.emit 'play', data: 'Play «Priss».' if Session.get('isProdEnvironment')
     # }

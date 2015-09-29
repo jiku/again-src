@@ -39,6 +39,11 @@ id-map@1.0.4
 infinitedg:gsap@1.16.0
 infinitedg:tween@0.14.0
 insecure@1.0.4
+jiku:datgui@0.0.1
+jiku:helpers@1.0.0
+jiku:interface@0.0.1
+jiku:player@0.0.1
+jiku:react-soundplayer@0.0.1
 jiku:three@0.0.1
 jiku:three-extras@0.0.1
 jiku:visualizers@0.0.1
@@ -81,6 +86,7 @@ tracker@1.0.8
 ui@1.0.8
 underscore@1.0.4
 underscorestring:underscore.string@3.2.2
+universe:modules@0.4.2
 url@1.0.5
 webapp@1.2.2
 webapp-hashing@1.0.5
