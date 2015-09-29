@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 autopublish
 insecure
 fds:pixijs
@@ -15,10 +14,24 @@ hipstersmoothie:scrollmagic
 raix:iscroll
 faisalman:ua-parser-js
 chuangbo:marked
-panphora:environment-template-helpers
+# panphora:environment-template-helpers
 lalomartins:markd
 coffeescript
 qazuor:animated-border-menus
 react-runtime
 ccorcos:cjsx
 jiku:visualizers
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
