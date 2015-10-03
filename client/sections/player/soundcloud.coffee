@@ -37,13 +37,13 @@ onPlay = (track) ->
   # Should contain what track to play, etc...
   findTrack()
 
-Template.soundcloud.onCreated = Template.soundcloud.created = ->
+Template.soundcloud.onCreated = ->
   SoundEvent.on 'play', onPlay
 
-Template.soundcloud.onRendered = Template.soundcloud.rendered = ->
+Template.soundcloud.onRendered = ->
   SiteEvent.emit 'componentState',
     component: 'SoundCloud'
     state: 'ready'
 
-Template.soundcloud.onDestroyed = Template.soundcloud.destroyed = ->
+Template.soundcloud.onDestroyed = ->
   SoundEvent.removeListener 'play', onPlay
