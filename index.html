@@ -7,20 +7,24 @@
 
 <body class="disable-scroll">
   <div id="container">
-    <div id="static" style="position: fixed; z-index: 500; width: 100%, height: 100%">
-      {{> pane}}
-      {{> soundcloud}}
-      {{> particles}}
-    </div>
-
-    {{> sections}}
-
-    <div id="staticFront">
-      <div id="progress"></div>
-      {{> menu }}
-    </div>
+    {{> container }}
   </div>
 </body>
+
+<template name="container">
+  <div id="static" style="position: fixed; z-index: 500; width: 100%, height: 100%">
+    {{> Template.dynamic template=pane}}
+    {{> Template.dynamic template=soundcloud}}
+    {{> Template.dynamic template=particles}}
+  </div>
+
+  {{> Template.dynamic template=sections}}
+
+  <div id="staticFront">
+    <div id="progress"></div>
+    {{> Template.dynamic template=menu }}
+  </div>
+</template>
 
 <template name="sections">
   <sections>
@@ -36,29 +40,29 @@
 </template>
 
 <template name="logo">
-  <header class="center">again</header>
+  <div class="center"><a href="/footer">again</a></div>
 </template>
 
 <template name="footer">
-  <footer class="center">
+  <div class="center">
     <div id="social">
     </div>
-  </footer>
+  </div>
 </template>
 
 <template name="menu">
   <menu class="invisible disable-clicks disable-selection">
     <nav id="bt-menu" class="bt-menu">
-        <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+        <a class="bt-menu-trigger"><span>Menu</span></a>
         <ul>
         </ul>
         <ul>
-          <li><a id="header" href="#header"><i class="fa fa-arrow-up"></i></a></li>
-          <li><a id="about" href="#about">about</a></li>
-          <li><a id="player" href="#player">player</a></li>
-          {{#if isDevEnvironment}}<li><a id="crappycrap" href="#crappycrap">crappycrap</a></li>{{/if}}
-          <li><a id="contribute" href="#contribute">contribute</a></li>
-          <li><a id="footer" href="#footer"><i class="fa fa-arrow-down"></i></a></li>
+          <li><a href="/header"><i class="fa fa-arrow-up"></i></a></li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/player">player</a></li>
+          {{#if isDevEnvironment}}<li><a href="/crappycrap">crappycrap</a></li>{{/if}}
+          <li><a href="/contribute">contribute</a></li>
+          <li><a href="/footer"><i class="fa fa-arrow-down"></i></a></li>
         </ul>
     </nav>
   </menu>

@@ -45,6 +45,8 @@ jiku:three@0.0.1
 jiku:three-extras@0.0.1
 jiku:visualizers@0.0.1
 jquery@1.11.4
+kadira:blaze-layout@2.1.0
+kadira:flow-router@2.6.2
 lalomartins:markd@0.1.1
 launch-screen@1.0.4
 livedata@1.0.15

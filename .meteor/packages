@@ -36,3 +36,5 @@ ejson
 spacebars
 check
 stolinski:stylus-multi
+kadira:flow-router
+kadira:blaze-layout

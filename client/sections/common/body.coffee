@@ -1,71 +1,43 @@
-@SiteEvent = new EventEmitter
-@SoundEvent = new EventEmitter
+# Meteor.borderMenu.init()
 
 marked.setOptions breaks: true
 
-Meteor.startup ->
-  Session.setDefault 'state', 'init'
-  Session.setDefault 'statePixiJS', 'unready'
-  Session.setDefault 'stateThreeJS', 'unready'
-  Session.setDefault 'stateSoundCloud', 'unready'
-  Session.setDefault 'componentStates', []
+controller = new ScrollMagic.Controller
 
-controller = new (ScrollMagic.Controller)
-
-controller.scrollTo (target, time) ->
-  if time == undefined
-    time = 0.5
+controller.scrollTo (target, time = 0.5) ->
+  Session.set "goTo", true
   TweenMax.to window, time,
     scrollTo:
       y: target
       autoKill: true
+      onAutoKill: ->
+        Session.set "goTo", false
     ease: Cubic.easeInOut
+    onComplete: ->
+      Session.set "goTo", false
 
-$(document).on 'click', 'a[href^=#]', (e) ->
-  id = $(this).attr('href')
-  if $(id).length > 0
+$(document).on 'click', 'a[href^="/"]', (e) ->
+  id = $(this).attr('href').split('/')[1]
+  if ($(id).length > 0) or (id is FlowRouter.current().path.split('/')[1])
     e.preventDefault()
-    controller.scrollTo id
+    SiteEvent.emit 'scrollTo', { position: id }
 
-Template.body.onCreated = Template.body.created = ->
-  onComponentState = (data) ->
-    Session.set 'state' + data.component, data.state
-    if Session.equals('state', 'init') and Session.equals('statePixiJS', 'ready') and Session.equals('stateThreeJS', 'ready') and Session.equals('stateSoundCloud', 'ready')
-      Session.set 'state', 'intro'
-
-  SiteEvent.on 'componentState', onComponentState
-
-Template.body.onRendered = Template.body.rendered = ->
-  Meteor.borderMenu.init()
-
-  sections = []
-  if Session.get('isProdEnvironment')
-    sections = [
-      'header'
-      'about'
-      'player'
-      'contribute'
-      'footer'
-    ]
-  else
-    sections = [
-      'header'
-      'about'
-      'player'
-      'crappycrap'
-      'contribute'
-      'footer'
-    ]
+Template.container.rendered = ->
   i = 0
   while i < sections.length
-    name = 'SECTION ' + sections[i]
-    section = new (ScrollMagic.Scene)(
+    section = new ScrollMagic.Scene(
       triggerElement: 'section#' + sections[i]
-      slider: 'right').setClassToggle('a#' + sections[i], 'active').setTween(TweenMax.to('section#' + sections[i], 1,
-      transform: 'opacity(1)'
-      ease: Linear.easeNone)).addTo(controller)
-    if Session.get('isProdEnvironment')
-      section.addIndicators name: name
+      triggerHook: _.contains(["0", "#{sections.length - 1}"], i) and "onEnter" or "onLeave"
+      offset: _.contains(["0", "#{sections.length - 1}"], i) and "0" or "1"
+      )
+      .setClassToggle 'a#' + sections[i], 'active'
+      .setTween(TweenMax.to('section#' + sections[i], 1, transform: 'opacity(1)', ease: Linear.easeNone))
+      .addTo controller
+      .on 'start', (e) ->
+        unless Session.get "goTo"
+          document.title = "Again (jiku): #{@triggerElement?().id}"
+          window.history.pushState {}, "Again (jiku): #{@triggerElement?().id}", "#{@triggerElement?().id}"
+    section.addIndicators name: 'SECTION ' + sections[i] unless Session.get('isProdEnvironment')
     i++
 
   toggleScroll = (selector, state) ->
@@ -98,9 +70,12 @@ Template.body.onRendered = Template.body.rendered = ->
       target.addClass('fadeout').removeClass('visible').addClass('invisible').addClass('disable-clicks').addClass 'disable-selection'
 
   onActivate = (event) ->
-    controller.scrollTo $(window).height() + $(document).outerHeight(), 6
     toggleScroll 'body', 'on'
     toggleSubSection 'subsection', 'on'
     toggleMenu 'Menu', 'on'
 
   SiteEvent.on 'activate', onActivate
+
+  onScrollTo = (e) -> controller.scrollTo "##{e?.position}" or ($(window).height() + $(document).outerHeight()), 6
+
+  SiteEvent.on 'scrollTo', onScrollTo
