@@ -14,7 +14,6 @@ hipstersmoothie:scrollmagic
 raix:iscroll
 faisalman:ua-parser-js
 chuangbo:marked
-# panphora:environment-template-helpers
 lalomartins:markd
 coffeescript
 qazuor:animated-border-menus
@@ -38,3 +37,4 @@ check
 stolinski:stylus-multi
 kadira:flow-router
 kadira:blaze-layout
+jiku:env

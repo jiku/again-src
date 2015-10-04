@@ -32,7 +32,7 @@
     <subsection class="invisible disable-clicks disable-selection">
       <section id="about" class="box">{{#markdown}}{{> about}}{{/markdown}}</section>
       <section id="player" class="box">{{#markdown}}{{> player}}{{/markdown}}</section>
-      {{#if isDevEnvironment}}<section id="crappycrap" class="box">{{#markdown}}{{> crappycrap }}{{/markdown}}</section>{{/if}}
+      {{#if isDev}}<section id="crappycrap" class="box">{{#markdown}}{{> crappycrap }}{{/markdown}}</section>{{/if}}
       <section id="contribute" class="box">{{#markdown}}{{> contribute }}{{/markdown}}</section>
     </subsection>
     <section id="footer" class="fullBox">{{> footer }}</section>
@@ -60,7 +60,7 @@
           <li><a href="/header"><i class="fa fa-arrow-up"></i></a></li>
           <li><a href="/about">about</a></li>
           <li><a href="/player">player</a></li>
-          {{#if isDevEnvironment}}<li><a href="/crappycrap">crappycrap</a></li>{{/if}}
+          {{#if isDev}}<li><a href="/crappycrap">crappycrap</a></li>{{/if}}
           <li><a href="/contribute">contribute</a></li>
           <li><a href="/footer"><i class="fa fa-arrow-down"></i></a></li>
         </ul>

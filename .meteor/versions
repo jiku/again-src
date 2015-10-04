@@ -40,6 +40,7 @@ infinitedg:gsap@1.16.0
 infinitedg:tween@0.14.0
 insecure@1.0.4
 jiku:datgui@0.0.1
+jiku:env@0.0.1
 jiku:interface@0.0.1
 jiku:three@0.0.1
 jiku:three-extras@0.0.1
