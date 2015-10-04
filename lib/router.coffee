@@ -32,14 +32,14 @@ FlowRouter.route '/:scrollTo',
   action: (params, queryParams) ->
     init = () ->
       Session.set 'state', 'normal'
-      SiteEvent.emit 'activate', {}
-      SoundEvent.emit 'play', data: 'Play «Priss».' unless Session.get("env") is "dev"
       BlazeLayout.render 'container',
         pane: 'pane'
         soundcloud: 'soundcloud'
         particles: 'particles'
         sections: 'sections'
         menu: 'menu'
+      SiteEvent.emit 'activate', {}
+      SoundEvent.emit 'play', data: 'Play «Priss».' unless Session.get("env") is "dev"
 
     # From external
     if _.isEmpty(lastPath) and (_.contains sections, params.scrollTo)
