@@ -37,7 +37,7 @@ Template.container.rendered = ->
         unless Session.get "goTo"
           document.title = "Again (jiku): #{@triggerElement?().id}"
           window.history.pushState {}, "Again (jiku): #{@triggerElement?().id}", "#{@triggerElement?().id}"
-    section.addIndicators name: 'SECTION ' + sections[i] if (Session.get "env" is "dev")
+    section.addIndicators name: 'SECTION ' + sections[i] if Session.get("env") is "dev"
     i++
 
   toggleScroll = (selector, state) ->

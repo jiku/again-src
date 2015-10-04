@@ -6,7 +6,7 @@
   'footer'
 ]
 
-@sections.splice 2, 0, "crappycrap" if (Meteor.settings.env is "dev")
+@sections.splice(2, 0, "crappycrap") if Meteor.settings.env is "dev"
 
 if Meteor.isClient
   Session.set "goTo", false
@@ -33,7 +33,7 @@ FlowRouter.route '/:scrollTo',
     init = () ->
       Session.set 'state', 'normal'
       SiteEvent.emit 'activate', {}
-      SoundEvent.emit 'play', data: 'Play «Priss».' unless (Session.get "env" is "dev")
+      SoundEvent.emit 'play', data: 'Play «Priss».' unless Session.get("env") is "dev"
       BlazeLayout.render 'container',
         pane: 'pane'
         soundcloud: 'soundcloud'
