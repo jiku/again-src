@@ -4,7 +4,7 @@ footer.center {
   top: 87%;
 }
 
-footer div#social a.btn span {
+#footer div#social a.btn span {
   font-family: 'jikutypeVector';
   font-size: 2px;
   text-transform: lowercase;
