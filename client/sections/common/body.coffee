@@ -21,8 +21,6 @@ $(document).on 'click', 'a[href^="/"]', (e) ->
     SiteEvent.emit 'scrollTo', { position: id }
 
 Template.container.rendered = ->
-  Meteor.borderMenu.init()
-
   i = 0
   while i < sections.length
     section = new ScrollMagic.Scene(
@@ -79,3 +77,6 @@ Template.container.rendered = ->
   onScrollTo = (e) -> controller.scrollTo "##{e?.position}" or ($(window).height() + $(document).outerHeight()), 6
 
   SiteEvent.on 'scrollTo', onScrollTo
+
+Template.menu.rendered = ->
+  Meteor.borderMenu.init()
