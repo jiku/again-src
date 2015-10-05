@@ -1,5 +1,3 @@
-# Meteor.borderMenu.init()
-
 marked.setOptions breaks: true
 
 controller = new ScrollMagic.Controller
@@ -23,6 +21,8 @@ $(document).on 'click', 'a[href^="/"]', (e) ->
     SiteEvent.emit 'scrollTo', { position: id }
 
 Template.container.rendered = ->
+  Meteor.borderMenu.init()
+
   i = 0
   while i < sections.length
     section = new ScrollMagic.Scene(
