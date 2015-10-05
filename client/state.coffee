@@ -1,8 +1,3 @@
-BlazeLayout.setRoot 'body'
-
-@SiteEvent = new EventEmitter
-@SoundEvent = new EventEmitter
-
 Meteor.startup ->
   Session.setDefault 'state', 'init'
   Session.setDefault 'statePixiJS', 'unready'
