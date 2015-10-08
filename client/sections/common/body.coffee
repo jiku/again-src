@@ -47,8 +47,6 @@ Template.sections.rendered = ->
 Template.container.rendered = ->
   onActivate = (e) ->
     SiteEvent.emit 'toggleStyle', 'visibility', 'subsection', 'on'
-
-
     SoundEvent.emit 'play', data: 'Play «Priss».' unless Session.get("env") is "dev"
   SiteEvent.on 'activate', onActivate
 
