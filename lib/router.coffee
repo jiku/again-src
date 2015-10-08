@@ -55,6 +55,7 @@ if Meteor.isClient
       if _.isEmpty(lastPath) and (_.contains sections, params.scrollTo)
         @externalDirect = true
         render()
+
   setLastPath = (context, redirect, stop) -> lastPath = context.path.split('/')[1]
 
   FlowRouter.notFound = action: -> redirect '/'
