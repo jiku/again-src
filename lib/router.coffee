@@ -1,53 +1,62 @@
-@sections = [
-  'header'
-  'about'
-  'player'
-  'contribute'
-  'footer'
-]
-
-@sections.splice(2, 0, "crappycrap") if Meteor.settings.env is "dev"
-
 if Meteor.isClient
+  @layouts = [{
+      name: 'normal'
+      templates: [{
+        name: 'pane'
+      }, {
+        name: 'soundcloud'
+      }, {
+        name: 'particles'
+      }, {
+        name: 'sections'
+        sections: ['header', 'about', 'player', 'contribute', 'footer']
+      }, {
+        name: 'menu'
+      }]
+    }]
+
+  @sections = [
+    'header'
+    'about'
+    'player'
+    'contribute'
+    'footer'
+  ]
+  @sections.splice(2, 0, "crappycrap") if Meteor.settings.env is "dev"
+
+  @externalDirect = true
+  @lastPath = ""
+
   Session.set "goTo", false
 
-lastPath = ""
-
-FlowRouter.route '/',
-  name: 'home'
-  action: (params, queryParams) ->
+  render = (args) ->
+    # I.e. uses default templates where not provided
     BlazeLayout.render 'container',
-      pane: 'pane'
-      soundcloud: 'soundcloud'
-      particles: 'particles'
-      sections: 'sections'
-      menu: 'menu'
+      pane: args?.templates?.pane or 'pane'
+      soundcloud: args?.templates?.soundcloud or 'soundcloud'
+      particles: args?.templates?.particles or 'particles'
+      sections: args?.templates?.sections or 'sections'
+      menu: args?.templates?.menu or 'menu'
 
-FlowRouter.route '/:scrollTo',
-  name: 'home_scroll'
-  triggersEnter: [(context, redirect) ->
-    unless _.contains sections, context.path.split('/')[1]
-      redirect '/'
-  ]
-  action: (params, queryParams) ->
-    init = () ->
-      Session.set 'state', 'normal'
-      SiteEvent.emit 'activate', {}
-      SoundEvent.emit 'play', data: 'Play «Priss».' unless Session.get("env") is "dev"
-      BlazeLayout.render 'container',
-        pane: 'pane'
-        soundcloud: 'soundcloud'
-        particles: 'particles'
-        sections: 'sections'
-        menu: 'menu'
+  FlowRouter.route '/',
+    name: 'home'
+    action: (params, queryParams) =>
+      @externalDirect = false
+      render()
 
-    # From external
-    if _.isEmpty(lastPath) and (_.contains sections, params.scrollTo)
-      init()
-    SiteEvent.emit 'scrollTo', { position: params.scrollTo }
+  FlowRouter.route '/:scrollTo',
+    name: 'home_scroll'
+    triggersEnter: [(context, redirect) ->
+      unless _.contains sections, context.path.split('/')[1]
+        redirect '/'
+    ]
+    action: (params, queryParams) =>
+      # From external, template takes care of internal
+      if _.isEmpty(lastPath) and (_.contains sections, params.scrollTo)
+        @externalDirect = true
+        render()
+  setLastPath = (context, redirect, stop) -> lastPath = context.path.split('/')[1]
 
-setLastPath = (context, redirect, stop) -> lastPath = context.path.split('/')[1]
+  FlowRouter.notFound = action: -> redirect '/'
 
-FlowRouter.notFound = action: -> redirect '/'
-
-FlowRouter.triggers.exit [setLastPath]
+  FlowRouter.triggers.exit [setLastPath]

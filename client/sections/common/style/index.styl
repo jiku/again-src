@@ -17,8 +17,14 @@ html, body
   padding 0
   width auto
 
-container
+// #container
+//   width 100%
+
+#container #static
+  position fixed
+  z-index 500
   width 100%
+  height: 100%
 
 sections
   position absolute
@@ -150,3 +156,17 @@ subheader, .box
 section > hr
   width 1%
   opacity .1
+
+#pane
+  position fixed
+  z-index 0
+  pointer-events: none
+
+#particles
+  position fixed
+  z-index 200
+  pointer-events none
+
+#soundcloud
+  position absolute
+  z-index 300

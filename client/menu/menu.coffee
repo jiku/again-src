@@ -1,3 +1,8 @@
+Template.menu.rendered = ->
+  Meteor.borderMenu.init()
+
+  SiteEvent.emit 'layout', { template: 'menu', state: 'rendered' }
+
 Template.menu.events
   'click a': (event) ->
     nav = $(event.target).closest('nav')
