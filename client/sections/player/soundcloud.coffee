@@ -40,10 +40,8 @@ onPlay = (track) ->
 Template.soundcloud.onCreated = ->
   SoundEvent.on 'play', onPlay
 
-Template.soundcloud.onRendered = ->
-  SiteEvent.emit 'componentState',
-    component: 'SoundCloud'
-    state: 'ready'
+Template.soundcloud.rendered = ->
+  SiteEvent.emit 'layout', { template: 'soundcloud', state: 'rendered' }
 
 Template.soundcloud.onDestroyed = ->
   SoundEvent.removeListener 'play', onPlay

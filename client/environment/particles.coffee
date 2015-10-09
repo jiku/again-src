@@ -16,6 +16,4 @@ Template.particles.rendered = ->
         text: "jiku"
     }
   ], () ->
-    SiteEvent.emit 'componentState',
-      component: 'ThreeJS'
-      state: 'ready'
+    SiteEvent.emit 'layout', { template: 'particles', state: 'rendered' }
