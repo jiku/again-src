@@ -29,6 +29,7 @@ Meteor.startup ->
       Session.set "lastHistory", e.id
       document.title = "Again (jiku): #{e.id}"
       window.history.pushState {}, "Again (jiku): #{e.id}", "#{e.id}"
+      analytics.page e.id
   SiteEvent.on 'setHistory', onSetHistory
 
 Template.body.rendered = ->
