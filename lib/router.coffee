@@ -30,7 +30,7 @@ if Meteor.isClient
   Session.set "goTo", false
 
   render = (args) ->
-    # I.e. uses default templates where not provided
+    # I.e. uses default templates unless provided
     BlazeLayout.render 'container',
       pane: args?.templates?.pane or 'pane'
       soundcloud: args?.templates?.soundcloud or 'soundcloud'

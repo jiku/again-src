@@ -33,7 +33,7 @@ Template.sections.rendered = ->
       .setTween(TweenMax.to('section#' + section, 1, transform: 'opacity(1)', ease: Linear.easeNone))
       .addTo controller
       .on 'start', (e) ->
-        unless Session.get "goTo"
+        unless (Session.get "goTo")
           SiteEvent.emit 'setHistory', { id: @triggerElement?().id }
     scene.addIndicators name: 'SECTION ' + section if Session.get("env") is "dev"
 

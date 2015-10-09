@@ -25,8 +25,10 @@ Meteor.startup ->
     SiteEvent.emit 'activateExtra', {}
 
   onSetHistory = (e) ->
-    document.title = "Again (jiku): #{e.id}"
-    window.history.pushState {}, "Again (jiku): #{e.id}", "#{e.id}"
+    unless Session.equals("lastHistory", e.id)
+      Session.set "lastHistory", e.id
+      document.title = "Again (jiku): #{e.id}"
+      window.history.pushState {}, "Again (jiku): #{e.id}", "#{e.id}"
   SiteEvent.on 'setHistory', onSetHistory
 
 Template.body.rendered = ->
