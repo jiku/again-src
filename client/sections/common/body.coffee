@@ -22,6 +22,12 @@ $(document).on 'click', 'a[href^="/"]', (e) ->
     SiteEvent.emit 'setHistory', { id: id }
     SiteEvent.emit 'scrollTo', { position: id }
 
+$(window).on "navigate", (event, data) ->
+  direction = data.state.direction
+  if direction is 'back'
+    # do something
+    localStorage.back = 1
+
 Template.sections.rendered = ->
   _.each sections, (section, i) ->
     scene = new ScrollMagic.Scene(
