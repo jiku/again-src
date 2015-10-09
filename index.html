@@ -12,13 +12,13 @@
 </body>
 
 <template name="container">
-  <div id="static" style="position: fixed; z-index: 500; width: 100%, height: 100%">
-    {{> Template.dynamic template=pane}}
-    {{> Template.dynamic template=soundcloud}}
-    {{> Template.dynamic template=particles}}
+  <div id="static">
+    {{> Template.dynamic template=pane }}
+    {{> Template.dynamic template=soundcloud }}
+    {{> Template.dynamic template=particles }}
   </div>
 
-  {{> Template.dynamic template=sections}}
+  {{> Template.dynamic template=sections }}
 
   <div id="staticFront">
     <div id="progress"></div>
@@ -69,15 +69,15 @@
 </template>
 
 <template name="pane">
-  <div id="pane" style="position: fixed; z-index: 0; pointer-events: none;"></div>
+  <div id="pane"></div>
 </template>
 
 <template name="particles">
-  <div id="particles" style="position: fixed; z-index: 200; pointer-events: none;"></div>
+  <div id="particles"></div>
 </template>
 
 <template name="soundcloud">
-<div id="soundcloud" style="position: absolute; z-index: 300;">
+<div id="soundcloud">
 <a href="http://soundcloud.com/jiku" class="float"><img src="https://w.soundcloud.com/icon/assets/images/white_transparent_32-94fc761.png" /></a>
   </div>
 </template>

@@ -1,6 +1,6 @@
 # Template.pane.onCreated = Template.pane.created = ->
 
-Template.pane.onRendered = Template.pane.rendered = ->
+Template.pane.rendered = ->
   pane = new Pane 'pane', assets: [
     {
       name: 'Julia3Atest2400x'
@@ -41,7 +41,5 @@ Template.pane.onRendered = Template.pane.rendered = ->
     #     interactive: true
     }
   ], () ->
-    SiteEvent.emit 'componentState',
-      component: 'PixiJS'
-      state: 'ready'
+    SiteEvent.emit 'layout', { template: 'pane', state: 'rendered' }
     SiteEvent.on 'activate', @onActivate

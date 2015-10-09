@@ -140,8 +140,5 @@ Template.particles.rendered = ->
           # console.log "x: #{x}, y: #{y}, deltaCalc: #{deltaCalc}"
         interactive: true
     }
-  ],
-  () ->
-    SiteEvent.emit 'componentState',
-      component: 'ThreeJS'
-      state: 'ready'
+  ], () ->
+    SiteEvent.emit 'layout', { template: 'particles', state: 'rendered' }
