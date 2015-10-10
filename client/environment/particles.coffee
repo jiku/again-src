@@ -138,6 +138,7 @@ Template.particles.rendered = ->
           # @group.scale.x += deltaCalc
           # @group.scale.y -= deltaCalc
           # console.log "x: #{x}, y: #{y}, deltaCalc: #{deltaCalc}"
+        updateReliesOn: -> @audio
         interactive: true
     }
   ], () ->
