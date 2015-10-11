@@ -3,6 +3,8 @@ Meteor.startup ->
   Session.setDefault 'state', 'init'
   @SiteEvent = new EventEmitter
   @SoundEvent = new EventEmitter
+  if Meteor.settings.public.debugAnalytics then analytics.debug() else analytics.debug(false)
+  analytics.identify '123', name: 'Anonymous'
 
   onLayout = (data) ->
     layout = _.find layouts, (l) ->
