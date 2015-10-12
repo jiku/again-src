@@ -5,6 +5,7 @@ Meteor.startup ->
   @SoundEvent = new EventEmitter
   if Meteor.settings.public.debugAnalytics then analytics.debug() else analytics.debug(false)
   analytics.identify '123', name: 'Anonymous'
+  marked.setOptions breaks: true
 
   onLayout = (data) ->
     layout = _.find layouts, (l) ->

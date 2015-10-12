@@ -1,5 +1,3 @@
-marked.setOptions breaks: true
-
 controller = new ScrollMagic.Controller
 
 controller.scrollTo (target, time = 0.5) ->
