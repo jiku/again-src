@@ -1,5 +1,5 @@
 Meteor.startup ->
-  BlazeLayout.setRoot 'body'
+  BlazeLayout.setRoot '#container'
   Session.setDefault 'state', 'init'
   @SiteEvent = new EventEmitter
   @SoundEvent = new EventEmitter

@@ -31,7 +31,7 @@ if Meteor.isClient
 
   render = (args) ->
     # I.e. uses default templates unless provided
-    BlazeLayout.render 'container',
+    BlazeLayout.render 'layoutNormal',
       pane: args?.templates?.pane or 'pane'
       soundcloud: args?.templates?.soundcloud or 'soundcloud'
       particles: args?.templates?.particles or 'particles'

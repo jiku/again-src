@@ -7,11 +7,11 @@
 
 <body class="disable-scroll">
   <div id="container">
-    {{> Template.dynamic template=container }}
+    {{> Template.dynamic template=layout }}
   </div>
 </body>
 
-<template name="container">
+<template name="layoutNormal">
   <div id="static">
     {{> Template.dynamic template=pane }}
     {{> Template.dynamic template=soundcloud }}
