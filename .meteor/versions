@@ -44,6 +44,7 @@ insecure@1.0.4
 jiku:datgui@0.0.1
 jiku:env@0.0.1
 jiku:interface@0.0.1
+jiku:progress@0.0.1
 jiku:scroll@0.0.1
 jiku:three@0.0.1
 jiku:three-extras@0.0.1
@@ -71,6 +72,8 @@ mobile-status-bar@1.0.6
 mongo@1.1.2
 mongo-id@1.0.1
 mongo-livedata@1.0.9
+mquandalle:jade@0.4.4
+mquandalle:jade-compiler@0.4.4
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 okgrow:analytics@0.4.0

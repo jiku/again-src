@@ -12,6 +12,7 @@ Template.pane.rendered = ->
       onUpdate = ->
         @options.obj.scrolling = true
         @options.obj.data.env.scrollTop = -@y
+        jikuProgress.update @options.obj.data.env.scrollTop, @options.obj.data.env.relativeContainerHeight, @options.obj.data.env.relativeContentHeight
       myScroll = new IScroll relativeContainer,
         scrollY: true
         probeType: 3
@@ -34,6 +35,7 @@ Template.pane.rendered = ->
       $(relativeContainer).scroll =>
         @scrolling = true
         @data.env.scrollTop = $(relativeContainer).scrollTop()
+        jikuProgress.update @data.env.scrollTop, @data.env.relativeContainerHeight, @data.env.relativeContentHeight
 
     @data.env =
       relativeContainerWidth: if $(relativeContainer).width() > 0 then $(relativeContainer).width() else "100vw"

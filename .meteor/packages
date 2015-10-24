@@ -35,6 +35,7 @@ stolinski:stylus-multi
 kadira:flow-router
 kadira:blaze-layout
 jiku:env
+jiku:progress
 jiku:scroll
 meteorhacks:fast-render
 okgrow:analytics
