@@ -1,5 +1,3 @@
-marked.setOptions breaks: true
-
 controller = new ScrollMagic.Controller
 
 controller.scrollTo (target, time = 0.5) ->
@@ -79,7 +77,7 @@ Template.sections.rendered = ->
 
   SiteEvent.emit 'layout', { template: 'sections', state: 'rendered' }
 
-Template.container.rendered = ->
+Template.layoutNormal.rendered = ->
   SiteEvent.on 'scrollTo', onScrollTo
   SiteEvent.on 'toggleStyle', onToggleStyle
   SiteEvent.on 'activate', onActivate
