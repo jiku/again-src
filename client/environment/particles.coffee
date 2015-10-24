@@ -27,10 +27,10 @@ Template.particles.rendered = ->
       freq:
         target: "1000" # Hz
   }]
+  options:
+    rotationWrap: 'mean'
+    scaleWrap: 'mean'
   datgui: ->
-    @options =
-      rotationWrap: 'mean'
-      scaleWrap: 'mean'
     gui = @gui.addFolder 'Particles scene'
     rotationGUI = gui.addFolder 'Rotation'
     rotationGUI.add(@scene.rotation, 'x', 0, 360).listen()
@@ -80,19 +80,18 @@ Template.particles.rendered = ->
                 max: 100
               freq:
                 target: "1000" # Hz
+        options:
+          rotation:
+            x: 0
+            y: 0
+            z: 0
+          scale:
+            x: 1
+            y: 1
+            z: 1
+          rotationWrap: 'mean'
+          scaleWrap: 'mean'
         datgui: ->
-          # @gui = new dat.GUI
-          @options =
-            rotation:
-              x: 0
-              y: 0
-              z: 0
-            scale:
-              x: 1
-              y: 1
-              z: 1
-            rotationWrap: 'mean'
-            scaleWrap: 'mean'
           gui = @gui.addFolder 'jiku Logo'
           @gui.remember @options # scaleGUI #@group # None work...
           @gui.remember @options.rotation # scaleGUI #@group # None work...
