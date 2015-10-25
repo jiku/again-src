@@ -42,12 +42,12 @@ onToggleStyle = (type, selector, state) ->
 
 onActivate = (e) ->
   SiteEvent.emit 'toggleStyle', 'visibility', 'subsection', 'on'
-  SoundEvent.emit 'play', data: 'Play «Priss».' unless Session.get("env") is "dev"
 
 onActivateExtra = (e) ->
   $('section#header').addClass 'disable-clicks'
   SiteEvent.emit 'toggleStyle', 'scroll', 'body', 'on'
   SiteEvent.emit 'toggleStyle', 'visibility', 'menu', 'on'
+  SoundEvent.emit 'play', data: 'Play «Priss».' if Meteor.settings.public.soundcloud.active
 
 $(document).on 'click', 'a[href^="/"]', (e) ->
   id = $(this).attr('href').split('/')[1]
