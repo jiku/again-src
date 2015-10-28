@@ -1,0 +1,66 @@
+head
+	title jiku - «Again»
+body.disable-scroll
+	#container
+		+Template.dynamic(template=layout)
+
+template(name='layoutNormal')
+	#static
+		+Template.dynamic(template=pane)
+		+Template.dynamic(template=soundcloud)
+		+Template.dynamic(template=particles)
+	+Template.dynamic(template=sections)
+	#staticFront
+		+Template.dynamic(template=menu)
+
+template(name='sections')
+	sections
+		section#header.fullBox.disable-selection
+			+logo
+		subsection.invisible.disable-clicks.disable-selection
+			section#about.box
+				+markdown
+					{{>about}}
+			section#player.box
+				+markdown
+					{{>player}}
+			if isDev
+				section#crappycrap.box
+					+markdown
+						{{>crappycrap}}
+			section#contribute.box
+				+markdown
+					{{>contribute}}
+		section#footer.fullBox
+			+footer
+
+template(name='logo')
+	.center
+		a(href='/footer') again
+
+template(name='footer')
+	.center
+		#social
+
+template(name='menu')
+	menu.invisible.disable-clicks.disable-selection
+		nav#bt-menu.bt-menu
+			a.bt-menu-trigger
+				span Menu
+			ul
+			ul
+				li: a(href='/header'): i.fa.fa-arrow-up
+				li: a(href='/about') about
+				li: a(href='/player') player
+				if isDev
+					li: a(href='/crappycrap') crappycrap
+				li: a(href='/contribute') contribute
+				li: a(href='/footer'): i.fa.fa-arrow-down
+
+template(name='pane')
+	#pane
+
+template(name='particles')
+	#particles
+
+template(name='soundcloud')
