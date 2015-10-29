@@ -66,7 +66,7 @@ Template.pane.rendered = ->
         name: 'fog3'
         file: '/smoke-cloud-texture-wallpaper-2.jpg' }, {
         name: 'Julia3Atest2400x'
-        file: '/1B2_long_title_2400p_mq.jpg'
+        file: '/1B2_long_title_2048p_mq.jpg'
         properties:
           offset:
             y: 150
