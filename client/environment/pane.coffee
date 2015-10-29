@@ -58,7 +58,7 @@ Template.pane.rendered = ->
         file: '/Julia3Atest2400xCosmic.jpg'
         properties:
           blend: 'SCREEN'
-          alpha: .5
+          alpha: .7
           interactive: true }],
       # }, {
       #   name: 'fog1'
