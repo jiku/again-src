@@ -17,3 +17,12 @@ Meteor.startup ->
       optionsGUI = datgui.addFolder 'Options'
       optionsGUI.closed = false
       optionsGUI.add(jiku.options, 'nativescroll').listen()
+
+    if datgui
+      viewport = window
+      viewportGUI = datgui.addFolder 'Viewport'
+      viewportGUI.closed = false
+      viewportGUI.add(viewport, 'innerWidth').listen()
+      viewportGUI.add(viewport, 'innerHeight').listen()
+      viewportGUI.add(viewport, 'outerWidth').listen()
+      viewportGUI.add(viewport, 'outerHeight').listen()
