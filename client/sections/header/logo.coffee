@@ -1,5 +1,5 @@
 Template.logo.rendered = ->
-  $(event.currentTarget).addClass 'fadein'
+  @$('div').addClass 'fadein'
 
 Template.logo.events 'click': (event) ->
   SiteEvent.emit 'activateExtra', { from: 'logo' }
