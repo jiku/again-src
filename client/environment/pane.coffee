@@ -47,7 +47,7 @@ Template.pane.rendered = ->
     scroll,
     assets: [{
         name: 'Julia3Atest2400x'
-        file: '/1B2_long_title_2400p_mq.jpg'
+        file: '/1B2_long_title_2048p_mq.jpg'
         properties:
           offset:
             y: 150
