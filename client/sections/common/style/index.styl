@@ -44,14 +44,33 @@ section
   height auto !important /* real browsers */
   min-height 100% /* real browsers */
 
+borderStyle = dotted
+borderColor = #777
+gradientTop = rgba(0, 0, 0, .1)
+gradientBottom = rgba(127, 127, 127, .5)
+linkColor = #97f
+highlightColor = #eee
+
 a
   text-decoration none
+  transition color .1s .1s
+
+subsection a
+  padding 0em .2em
+  margin 0 -2px
+  white-space nowrap
+  border-bottom 1px borderStyle borderColor
+  border-radius .3em
+  background linear-gradient(gradientTop, gradientBottom) no-repeat bottom
+  background-size 100% 0px
+  transition background-size .2s
 
 a, a:visited
-  color #97f
+  color linkColor
 
 a:hover, a:active, a.active
-  color #eee
+  color highlightColor
+  background-size 100% 100%
 
 // FOR CONTENT IN 100% CONTAINER
 .center
