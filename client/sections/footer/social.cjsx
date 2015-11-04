@@ -1,8 +1,3 @@
-Meteor.methods
-  RenderSocial: ->
-    React.render(<Social />, document.getElementById("social"))
-    null
-
 Icon = React.createClass
   propTypes:
     icon: React.PropTypes.object.isRequired
@@ -25,3 +20,6 @@ Social = React.createClass
     <div id="links">
       {@renderIcons()}
     </div>
+
+Template.footer.helpers
+  Social: -> Social
