@@ -2,4 +2,5 @@ public/
 *.*UNUSED
 client/**/*.md
 packages/
-/*.json
+/dev*.json
+/pro*.json
