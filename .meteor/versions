@@ -46,6 +46,7 @@ insecure@1.0.4
 jiku:datgui@0.0.1
 jiku:env@0.0.1
 jiku:interface@0.0.1
+jiku:modernizr@3.2.0
 jiku:player@0.0.1
 jiku:progress@0.0.1
 jiku:scroll@0.0.1
