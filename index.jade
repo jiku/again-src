@@ -24,6 +24,8 @@ template(name='sections')
 			section#player.box
 				+markdown
 					{{>player}}
+				.react
+					+React(component=reactComponent)
 			if isDev
 				section#crappycrap.box
 					+markdown
@@ -40,7 +42,7 @@ template(name='logo')
 
 template(name='footer')
 	.center
-		#social
+		#social.react
 			+React(component=Social)
 
 template(name='menu')
@@ -63,5 +65,3 @@ template(name='pane')
 
 template(name='particles')
 	#particles
-
-template(name='soundcloud')

@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-insecure
 fds:pixijs
 webapp
 raix:eventemitter
@@ -20,18 +19,15 @@ jiku:visualizers
 standard-minifiers
 meteor-base
 mobile-experience
-mongo
 blaze-html-templates
 session
 jquery
 tracker
 logging
 reload
-random
-ejson
 spacebars
-check
 stolinski:stylus-multi
+service-configuration
 kadira:flow-router
 kadira:blaze-layout
 jiku:env
@@ -40,8 +36,10 @@ jiku:scroll
 meteorhacks:fast-render
 okgrow:analytics
 kadira:debug
-jiku:player
 themeteorchef:bert
 mquandalle:jade
 react-template-helper
+webpack:webpack
 jiku:modernizr
+kit:cssnext
+kit:cssnext-basscss

@@ -47,7 +47,7 @@ onActivateExtra = (e) ->
   $('section#header').addClass 'disable-clicks'
   SiteEvent.emit 'toggleStyle', 'scroll', 'body', 'on'
   SiteEvent.emit 'toggleStyle', 'visibility', 'menu', 'on'
-  SoundEvent.emit 'play', data: 'Play «Priss».' if Meteor.settings.public.soundcloud.active
+  SiteEvent.emit 'play', { randomize: true } if Meteor.settings.public.soundcloud.active
 
 $(document).on 'click', 'a[href^="/"]', (e) ->
   id = $(this).attr('href').split('/')[1]
@@ -58,11 +58,11 @@ $(document).on 'click', 'a[href^="/"]', (e) ->
     SiteEvent.emit 'scrollTo', { position: id }
 
 Template.sections.rendered = ->
-  _.each sections, (section, i) ->
+  _.each jiku.again.sections, (section, i) ->
     scene = new ScrollMagic.Scene(
       triggerElement: 'section#' + section
-      triggerHook: _.contains(["0", "#{sections.length - 1}"], i) and "onEnter" or "onLeave"
-      offset: _.contains(["0", "#{sections.length - 1}"], i) and "0" or "1"
+      triggerHook: _.contains(["0", "#{jiku.again.sections.length - 1}"], i) and "onEnter" or "onLeave"
+      offset: _.contains(["0", "#{jiku.again.sections.length - 1}"], i) and "0" or "1"
       )
       .setClassToggle 'a#' + section, 'active'
       .setTween(TweenMax.to('section#' + section, 1, transform: 'opacity(1)', ease: Linear.easeNone))
@@ -72,7 +72,7 @@ Template.sections.rendered = ->
           SiteEvent.emit 'setHistory', { id: @triggerElement?().id }
     scene.addIndicators name: 'SECTION ' + section if Session.get("env") is "dev"
 
-    if (sections.length - 1 is i) and (FlowRouter.getParam 'scrollTo')
+    if (jiku.again.sections.length - 1 is i) and (FlowRouter.getParam 'scrollTo')
       SiteEvent.emit 'scrollTo', { position: FlowRouter.getParam 'scrollTo' }
 
   SiteEvent.emit 'layout', { template: 'sections', state: 'rendered' }
