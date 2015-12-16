@@ -38,7 +38,7 @@ template(name='sections')
 
 template(name='logo')
 	.center
-		a(href='/footer') again
+		a(href="{{uri 'footer'}}") again
 
 template(name='footer')
 	.center
@@ -52,13 +52,13 @@ template(name='menu')
 				span Menu
 			ul
 			ul
-				li: a(href='/header'): i.fa.fa-arrow-up
-				li: a(href='/about') about
-				li: a(href='/player') player
+				li: a(href="{{uri 'header'}}"): i.fa.fa-arrow-up
+				li: a(href="{{uri 'about'}}") about
+				li: a(href="{{uri 'player'}}") player
 				if isDev
-					li: a(href='/crappycrap') crappycrap
-				li: a(href='/contribute') contribute
-				li: a(href='/footer'): i.fa.fa-arrow-down
+					li: a(href="{{uri 'crappycrap'}}") crappycrap
+				li: a(href="{{uri 'contribute'}}") contribute
+				li: a(href="{{uri 'footer'}}"): i.fa.fa-arrow-down
 
 template(name='pane')
 	#pane

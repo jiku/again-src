@@ -1,16 +1,18 @@
 @import url(http://fonts.googleapis.com/css?family=Lato)
 
+/* TODO: Use base_uri var? */
 @font-face
   font-family jikutypePixel
   src:
-    url('jikutype-001-Pixel.woff2') format('woff2'),
-    url('jikutype-001-Pixel.woff') format('woff')
+    url('/again/jikutype-001-Pixel.woff2') format('woff2'),
+    url('/again/jikutype-001-Pixel.woff') format('woff')
 
+/* TODO: Use base_uri var? */
 @font-face
   font-family jikutypeVector
   src:
-    url('jikutype-001-Vector.woff2') format('woff2'),
-    url('jikutype-001-Vector.woff') format('woff')
+    url('/again/jikutype-001-Vector.woff2') format('woff2'),
+    url('/again/jikutype-001-Vector.woff') format('woff')
 
 html, body
   margin 0
@@ -75,7 +77,7 @@ subsection
     position absolute
     width 1em
     height 1em
-    background url(/external.svg)
+    background url(/again/external.svg) /* TODO: Use base_uri var? */
     background-size 150%
     background-position -.25em -3.25em
 

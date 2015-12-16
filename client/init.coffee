@@ -32,6 +32,7 @@ Meteor.startup ->
   ]
   if (Meteor.settings.env is 'dev') then @jiku.again.sections.splice(2, 0, 'crappycrap')
 
+  @jiku.again.base_uri = Meteor.settings.public.base_uri
   @jiku.again.externalDirect = false
   @jiku.again.lastPath = ''
 
@@ -67,7 +68,7 @@ Meteor.startup ->
     unless Session.equals("lastHistory", e.id)
       Session.set "lastHistory", e.id
       document.title = "Again (jiku): #{e.id}"
-      window.history.pushState {}, "Again (jiku): #{e.id}", "#{e.id}"
+      window.history.pushState {}, "Again (jiku): #{e.id}", "#{jiku.again.base_uri + e.id}"
       analytics.page e.id
   SiteEvent.on 'setHistory', onSetHistory
 
