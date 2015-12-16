@@ -1,4 +1,4 @@
 [submodule "packages/jiku:visualizers"]
 	path = packages/jiku:visualizers
-	url = https://github.com/jiku/visualizers.git
+	url = file:///Volumes/Data/Dev/Libraries/Meteor/jiku:visualizers/.git
 	ignore = dirty

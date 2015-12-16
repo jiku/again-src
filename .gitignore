@@ -1,7 +1,9 @@
 public/
+private/
+packages/
+!packages/jiku:visualizers/
 *.*UNUSED
 client/**/*.md
-packages/
 /dev*.json
 /pro*.json
 Dockerfile
