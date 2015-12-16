@@ -7,3 +7,4 @@ client/**/*.md
 /dev*.json
 /pro*.json
 Dockerfile
+.imdone
