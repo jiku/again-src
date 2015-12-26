@@ -1,0 +1,77 @@
+@require 'vars.styl'
+
+sections
+  position absolute
+  z-index 1000
+  color #fff
+  width 100%
+  display flex
+  flex-direction column
+  align-items center
+  align-self center
+  justify-content center
+
+section
+  /* width auto !important */ /* real browsers */
+  min-width 50% /* real browsers */
+  max-width 90%
+  height auto !important /* real browsers */
+  min-height 100% /* real browsers */
+
+  for n in 1..6
+    h{n}
+      font-size 8px
+      color #fff
+
+  p
+    color #777
+    font-size 1.5rem
+
+  sub
+    color #999
+    font-size 6px
+    vertical-align text-top
+
+subsection
+  a
+    padding 0em .2em
+    margin 0 -2px
+    white-space nowrap
+    border-bottom 1px borderStyle borderColor
+    border-radius .3em
+    background linear-gradient(gradientTop, gradientBottom) no-repeat bottom
+    background-size 100% 0px
+    transition background-size .2s
+
+  a[href^=http]
+    margin-right .8em
+  a[href^=http]:after
+    content ''
+    position absolute
+    width 1em
+    height 1em
+    background url(/again/external.svg) /* TODO: Use base_uri var? */
+    background-size 150%
+    background-position -.25em -3.25em
+
+.box
+  margin 0 auto
+  text-align center
+  display block
+  width 30%
+  height auto
+  padding .8em
+  padding-top 3em
+  margin-bottom 24px
+  background-color #000
+  border 1px dotted rgba(0,0,0,.1)
+  border-radius 8pt
+  background linear-gradient(top, #111, #000)
+  box-shadow rgba(95, 95, 95, .1) 1pt 1pt 1pt
+  opacity .7
+
+// MARKDOWN STYLING
+
+section > hr
+  width 1%
+  opacity .1

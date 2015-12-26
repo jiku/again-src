@@ -2,17 +2,12 @@
 
 /* TODO: Use base_uri var? */
 @font-face
-  font-family jikutypePixel
-  src:
-    url('/again/jikutype-001-Pixel.woff2') format('woff2'),
-    url('/again/jikutype-001-Pixel.woff') format('woff')
-
-/* TODO: Use base_uri var? */
-@font-face
   font-family jikutypeVector
   src:
     url('/again/jikutype-001-Vector.woff2') format('woff2'),
     url('/again/jikutype-001-Vector.woff') format('woff')
+
+@require 'vars.styl'
 
 html, body
   margin 0
@@ -28,58 +23,11 @@ body
   width 100%
   height 100%
 
-sections
-  position absolute
-  z-index 1000
-  color #fff
-  width 100%
-  display flex
-  flex-direction column
-  align-items center
-  align-self center
-  justify-content center
-
-section
-  /* width auto !important */ /* real browsers */
-  min-width 80% /* real browsers */
-  max-width 80%
-  height auto !important /* real browsers */
-  min-height 100% /* real browsers */
-
-borderStyle = dotted
-borderColor = #777
-gradientTop = rgba(0, 0, 0, .1)
-gradientBottom = rgba(127, 127, 127, .5)
-linkColor = #97f
-highlightColor = #eee
-
 a
   transition color .1s .1s
 
 a, a:hover, a:active, a.active
   text-decoration none
-
-subsection
-  a
-    padding 0em .2em
-    margin 0 -2px
-    white-space nowrap
-    border-bottom 1px borderStyle borderColor
-    border-radius .3em
-    background linear-gradient(gradientTop, gradientBottom) no-repeat bottom
-    background-size 100% 0px
-    transition background-size .2s
-
-  a[href^=http]
-    margin-right .8em
-  a[href^=http]:after
-    content ''
-    position absolute
-    width 1em
-    height 1em
-    background url(/again/external.svg) /* TODO: Use base_uri var? */
-    background-size 150%
-    background-position -.25em -3.25em
 
 a, a:visited
   color linkColor
@@ -137,17 +85,10 @@ a:hover, a:active, a.active
   font-size 2em
   color #fff
 
-h1, h2, h3, h4, h5, h6
-  font-size 4px
-  color #fff
-
 subheader, .box
   font-family 'Lato', 'Menlo', sans-serif
   font-size 1em
   color #bbb
-
-sub
-  color #999
 
 .disable-scroll
   overflow hidden
@@ -170,27 +111,6 @@ sub
   padding auto
   border 1px
   border-color #f00
-
-.box
-  margin 0 auto
-  text-align center
-  display block
-  width 30%
-  height auto
-  padding .8em
-  margin-bottom 24px
-  background-color #000
-  border 1px dotted rgba(0,0,0,.1)
-  border-radius 8pt
-  background linear-gradient(top, #111, #000)
-  box-shadow rgba(95, 95, 95, .1) 1pt 1pt 1pt
-  opacity .7
-
-// MARKDOWN STYLING
-
-section > hr
-  width 1%
-  opacity .1
 
 #pane
   position fixed
