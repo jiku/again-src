@@ -1,10 +1,5 @@
-public/
-private/
 packages/
 !packages/jiku:visualizers/
-*.*UNUSED
-client/**/*.md
-/dev*.json
-/pro*.json
-Dockerfile
-.imdone
+dev*.json
+pro*.json
+node_modules/
