@@ -14,8 +14,7 @@ coffeescript
 qazuor:animated-border-menus
 react-runtime
 ccorcos:cjsx
-jiku:visualizers
-standard-minifiers
+# jiku:visualizers
 meteor-base
 mobile-experience
 blaze-html-templates
@@ -42,3 +41,5 @@ webpack:webpack
 jiku:modernizr
 kit:cssnext
 kit:cssnext-basscss
+standard-minifier-css
+standard-minifier-js
