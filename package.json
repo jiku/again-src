@@ -12,7 +12,6 @@
     "testonly": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
     "test": "npm run lint && npm run testonly",
     "test-watch": "npm run testonly -- --watch --watch-extensions js,jsx",
-    "test": "chimp",
     "test-chimp": "chimp --ddp=http://dev.jiku:7777 --watch --mocha --path=tests"
   },
   "devDependencies": {
