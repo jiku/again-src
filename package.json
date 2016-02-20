@@ -30,7 +30,8 @@
     "mocha": "2.x.x",
     "react-addons-test-utils": "^0.14.6",
     "sinon": "1.17.x",
-    "jsdom": "^8.0.4"
+    "jsdom": "^8.0.4",
+    "basscss": "8.0.0"
   },
   "dependencies": {
     "domready": "^1.0.8",
