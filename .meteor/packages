@@ -37,7 +37,7 @@ kadira:debug
 themeteorchef:bert
 mquandalle:jade
 react-template-helper
-webpack:webpack
+# webpack:webpack
 jiku:modernizr
 kit:cssnext
 kit:cssnext-basscss
