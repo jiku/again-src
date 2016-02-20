@@ -12,7 +12,7 @@ chuangbo:marked
 lalomartins:markd
 coffeescript
 qazuor:animated-border-menus
-react-runtime
+# react-runtime
 ccorcos:cjsx
 # jiku:visualizers
 meteor-base
@@ -43,3 +43,5 @@ kit:cssnext
 kit:cssnext-basscss
 standard-minifier-css
 standard-minifier-js
+ecmascript
+jiku:datgui

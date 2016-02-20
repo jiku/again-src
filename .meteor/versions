@@ -41,6 +41,7 @@ http@1.1.2-beta.11
 id-map@1.0.4
 infinitedg:gsap@1.16.0
 infinitedg:tween@0.14.0
+jiku:datgui@0.0.1
 jiku:env@0.0.1
 jiku:modernizr@3.2.0
 jiku:progress@0.0.1
