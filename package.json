@@ -31,13 +31,16 @@
     "react-addons-test-utils": "^0.14.6",
     "sinon": "1.17.x",
     "jsdom": "^8.0.4",
-    "basscss": "8.0.0"
+    "basscss": "8.0.0",
+    "postcss-cssnext": "*",
+    "classnames": "*"
   },
   "dependencies": {
     "domready": "^1.0.8",
     "mantra-core": "^1.2.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "react-mounter": "^1.0.0"
+    "react-mounter": "^1.0.0",
+    "react-soundplayer": "^0.3.1"
   }
 }
