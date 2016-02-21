@@ -1,15 +1,14 @@
-import PostList from '../components/postlist.jsx';
+import Sections from '../components/sections.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context}, onData) => {
-  const {Meteor, Collections} = context();
+  const {Meteor} = context();
   if (Meteor.subscribe('posts.list').ready()) {
-    const posts = Collections.Posts.find().fetch();
-    onData(null, {posts});
+    onData(null, {});
   }
 };
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps()
-)(PostList);
+)(Sections);
