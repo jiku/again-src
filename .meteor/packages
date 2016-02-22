@@ -39,9 +39,10 @@ mquandalle:jade
 react-template-helper
 # webpack:webpack
 jiku:modernizr
-kit:cssnext
-kit:cssnext-basscss
-standard-minifier-css
+# kit:cssnext
+# kit:cssnext-basscss
+juliancwirko:postcss@1.0.0-beta.11
+# standard-minifier-css
 standard-minifier-js
 ecmascript
 jiku:datgui

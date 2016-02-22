@@ -14,8 +14,16 @@
     "test-watch": "npm run testonly -- --watch --watch-extensions js,jsx",
     "test-chimp": "chimp --ddp=http://dev.jiku:7777 --watch --mocha --path=tests"
   },
+  "dependencies": {
+    "domready": "^1.0.8",
+    "mantra-core": "^1.2.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-mounter": "^1.0.0",
+    "react-soundplayer": "^0.3.1",
+  },
   "devDependencies": {
-    "chimp": "^0.22.0",
+    "autoprefixer": "^6.3.3",
     "babel-core": "6.x.x",
     "babel-plugin-react-require": "2.x.x",
     "babel-polyfill": "6.x.x",
@@ -23,24 +31,26 @@
     "babel-preset-react": "6.x.x",
     "babel-preset-stage-2": "6.x.x",
     "babel-root-slash-import": "1.x.x",
+    "basscss": "^8.0.0",
     "chai": "3.x.x",
+    "chimp": "^0.22.0",
+    "classnames": "^2.2.3",
     "enzyme": "^2.0.0",
     "eslint": "1.10.x",
     "eslint-plugin-react": "3.15.x",
-    "mocha": "2.x.x",
-    "react-addons-test-utils": "^0.14.6",
-    "sinon": "1.17.x",
     "jsdom": "^8.0.4",
-    "basscss": "8.0.0",
-    "postcss-cssnext": "*",
-    "classnames": "*"
+    "mocha": "2.x.x",
+    "postcss-cssnext": "^2.4.0",
+    "react-addons-test-utils": "^0.14.6",
+    "sinon": "1.17.x"
   },
-  "dependencies": {
-    "domready": "^1.0.8",
-    "mantra-core": "^1.2.0",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "react-mounter": "^1.0.0",
-    "react-soundplayer": "^0.3.1"
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      }
+    }
   }
 }
