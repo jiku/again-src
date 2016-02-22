@@ -3,3 +3,4 @@ packages/
 dev*.json
 pro*.json
 node_modules/
+!.meteor/local/webpack-npm/node_modules/react-burger-menu
