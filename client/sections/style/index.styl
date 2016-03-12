@@ -7,7 +7,12 @@
     url('/again/jikutype-001-Vector.woff2') format('woff2'),
     url('/again/jikutype-001-Vector.woff') format('woff')
 
+// TODO: Not sure I need to import these? Meteor takes care of it?
 @require 'vars.styl'
+// @require 'links.styl'
+// @require 'interact.styl'
+// @require 'transition.styl'
+// @require 'text.styl'
 
 html, body
   margin 0
@@ -23,19 +28,6 @@ body
 //   width 100%
 //   height 100%
 
-a
-  transition color .1s .1s
-
-a, a:hover, a:active, a.active
-  text-decoration none
-
-a, a:visited
-  color linkColor
-
-a:hover, a:active, a.active
-  color highlightColor
-  background-size 100% 100%
-
 // // FOR CONTENT IN 100% CONTAINER
 // .center
 //   text-align center
@@ -45,60 +37,6 @@ a:hover, a:active, a.active
 //
 //   cursor pointer
 //
-// .invisible
-//   visibility hidden !important
-//   opacity 0 !important
-//
-// .visible
-//   visibility visible !important
-//   opacity 1 !important
-//
-// .fadein
-//   animation fadein 4s linear forwards
-//
-// .fadeout
-//   animation fadeout 4s linear forwards
-
-// @keyframes fadeinout
-//   0%, 100%
-//     opacity 0
-//   50%
-//     opacity 1
-//
-// @keyframes fadein
-//   0%
-//     opacity 0
-//   100%
-//     opacity 1
-//
-// @keyframes fadeout
-//   0%
-//     opacity 1
-//   100%
-//     opacity 0
-
-// #header, h1, h2, h3, h4, h5, h6
-//   font-family 'jikutypeVector'
-
-// #header
-//   opacity .5
-//   font-size 2em
-//   color #fff
-//
-// subheader, .box
-//   font-family 'Lato', 'Menlo', sans-serif
-//   font-size 1em
-//   color #bbb
-
-// .disable-scroll
-//   overflow hidden
-//   scrollbar none
-//
-// .disable-selection
-//   user-select none
-//
-// .disable-clicks
-//   pointer-events none
 
 // .fullBox
 //   width 100vw !important

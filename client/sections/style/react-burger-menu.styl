@@ -1,0 +1,46 @@
+// *, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.bm-overlay
+  position fixed
+  z-index 9999
+  width 100%
+  height 100%
+  background 'rgba(0, 0, 0, 0.3)'
+
+.bm-burger-button
+  position fixed
+  left 50%
+  bottom 36px
+  width 36px
+  height 30px
+
+.bm-burger-bars
+  background #373a47
+
+.bm-morph-shape
+  fill #373a47
+
+.bm-menu
+  display flex
+  align-items center
+  background #373a47
+  a
+    color #97f
+    &:hover,
+    &:focus
+      color #eee
+  .bm-item-list
+    display flex
+    flex-flow row
+    flex-direction row
+    align-items center
+    justify-content center
+    font-family 'jikutypeVector'
+    font-size 4px
+    text-decoration none
+    text-transform lowercase
+  .bm-item-list a
+    padding 4em
+    span
+      margin-left 40px
+      font-weight 700
