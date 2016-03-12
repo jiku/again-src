@@ -35,11 +35,13 @@ let Example = React.createClass({
   },
   render: function() {
     return (
-      <SlidingMenu styles={styles}>
-        <a key="0" id="home" href="/" style="color: white;"><i className="fa fa-fw fa-star-o"></i>Home</a>
-        <a key="1" id="about" href="/about" style={styles2.base}>About</a>
-        <a key="2" id="contact" href="/contact" style={styles2.base}>Contact</a>
-        <a key="3" onClick={ this.showSettings } href="/Settings" style={styles2.base}>Settings</a>
+      <SlidingMenu styles={styles} placement='bottom'>
+        <a key="0" onClick={ this.showSettings } href="/again/header"><i className="fa fa-fw fa-arrow-up"></i></a>
+        <a key="1" id="home" href="/again/about">About</a>
+        <a key="2" id="about" href="/again/player">Player</a>
+        <a key="3" id="about" href="/again/contribute">Contribute</a>
+        <a key="4" id="contact" href="/again/contact">Contact</a>
+        <a key="5" onClick={ this.showSettings } href="/again/header"><i className="fa fa-fw fa-arrow-down"></i></a>
       </SlidingMenu>
     );
   }
@@ -58,11 +60,11 @@ let styles = {
     position: 'fixed',
     width: '36px',
     height: '30px',
-    left: '36px',
-    top: '36px'
+    left: '50%',
+    bottom: '36px'
   },
   bmBurgerBars: {
-    background: '#373a47'
+    background: '#97f'
   },
   bmCrossButton: {
     height: '24px',
@@ -72,30 +74,33 @@ let styles = {
     background: '#bdc3c7'
   },
   bmMenu: {
-    background: '#373a47',
-    padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
+    background: '#000',
+    fontSize: '1.15em',
+    display: 'flex',
+    'align-items': 'center'
   },
   bmMorphShape: {
     fill: '#373a47'
   },
   bmItemList: {
     color: '#b8b7ad',
-    padding: '0.8em'
+    display: 'flex',
+    'font-family': 'jikutypeVector',
+    'text-decoration': 'none',
+    'text-transform': 'lowercase',
+    'font-size': '4px',
+    'flex-flow': 'row',
+    'flex-direction': 'row',
+    'justify-content': 'center',
+    'align-items': 'center'
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.3)'
-  }
+  },
 };
 
-let styles2 = {
-  base: {
-    color: '#eee',
-    ':hover': {
-      background: color('#97f').lighten(0.2).hexString()
-    }
-  }
-};
+// let styles2 = {
+// };
 
 console.log(Menu);
 // Menu = Radium(Menu)

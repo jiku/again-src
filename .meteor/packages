@@ -46,3 +46,5 @@ juliancwirko:postcss@1.0.0-beta.11
 standard-minifier-js
 ecmascript
 jiku:datgui
+stylus
+less
