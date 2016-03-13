@@ -15,4 +15,13 @@ export default function (injectDeps, {FlowRouter}) {
       });
     }
   });
+
+  FlowRouter.route('/about', {
+    name: 'home',
+    action() {
+      mount(MainLayoutCtx, {
+        content: () => (<About />)
+      });
+    }
+  });
 }

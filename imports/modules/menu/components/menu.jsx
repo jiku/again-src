@@ -31,21 +31,26 @@ import color from 'color';
 // let SlidingMenu = BurgerMenu.slide
 
 let Example = React.createClass({
-  toggleMenu: function(event) {
-    event.preventDefault();
+  toggleMenu: function(e) {
+    e.preventDefault();
     console.log("yay");
-    this.state.isOpen;
+    this.props.isOpen = false;
+    // console.log(this, this.props, this.state, e, this.props.children);
+    console.log(this.props);
+    // this.props.isOpen = !this.props.isOpen;
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   },
   render: function() {
     return (
       // <SlidingMenu styles={styles} placement='bottom'>
       <SlidingMenu placement='bottom'>
-        <a key="0" onClick={ this.toggleMenu } id="header" href="/again/header"><i className="fa fa-fw fa-arrow-up"></i></a>
-        <a key="1" onClick={ this.toggleMenu } id="home" href="/again/about">About</a>
-        <a key="2" onClick={ this.toggleMenu } id="about" href="/again/player">Player</a>
-        <a key="3" onClick={ this.toggleMenu } id="about" href="/again/contribute">Contribute</a>
-        <a key="4" onClick={ this.toggleMenu } id="contact" href="/again/contact">Contact</a>
-        <a key="5" onClick={ this.toggleMenu } id="footer" href="/again/footer"><i className="fa fa-fw fa-arrow-down"></i></a>
+        <a key="0" id="header" href="/again/header"><i className="fa fa-fw fa-arrow-up"></i></a>
+        <a key="1" id="home" href="/again/about">About</a>
+        <a key="2" id="about" href="/again/player">Player</a>
+        <a key="3" id="contact" href="/again/contact">Contact</a>
+        <a key="4" id="footer" href="/again/footer"><i className="fa fa-fw fa-arrow-down"></i></a>
       </SlidingMenu>
     );
   }
@@ -54,7 +59,7 @@ let Example = React.createClass({
 Example = Radium(Example);
 
 const Menu = ({}) => (
-  <div className='player'>
+  <div className='menu'>
     <Example />
   </div>
 );
