@@ -5,18 +5,22 @@ import Menu from '../../menu/containers/menu.js';
 const Layout = ({content = () => null }) => (
   <div>
     <div>
-      <header>
-      jiku - «Again»
-      <Navigation />
-      </header>
-
-      <div>
-      {content()}
-      </div>
-
-      <footer>
-      <small>Built with <a href='https://github.com/kadirahq/mantra'>Mantra</a> &amp; Meteor.</small>
-      </footer>
+      <sections>
+        <section className="box">
+          <header>Again</header>
+          <Navigation />
+        </section>
+        <section className="box">
+          <div>
+          {content()}
+          </div>
+        </section>
+        <section className="box">
+          <footer>
+          <small>Built with <a href='https://github.com/kadirahq/mantra'>Mantra</a> &amp; Meteor.</small>
+          </footer>
+        </section>
+      </sections>
     </div>
     <div>
       <Menu />
