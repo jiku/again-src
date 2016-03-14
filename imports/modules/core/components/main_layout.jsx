@@ -1,6 +1,8 @@
 import React from 'react';
 import Navigation from './navigation.jsx';
 import Menu from '../../menu/containers/menu.js';
+import MtSvgLines from 'react-mt-svg-lines';
+// import SvgSpinner from './SvgSpinner.js';
 
 const Layout = ({content = () => null }) => (
   <div>
@@ -8,7 +10,10 @@ const Layout = ({content = () => null }) => (
       <sections>
         <section className="box">
           <header>Again</header>
-          <Navigation />
+          {/*<Navigation />*/}
+          {/*<MtSvgLines duration={ 1500 } stagger={ 20 } timing="linear" playback="2 alternate-reverse both">
+            <SvgSpinner />
+          </MtSvgLines>*/}
         </section>
         <section className="box">
           <div>
