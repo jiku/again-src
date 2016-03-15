@@ -18,7 +18,7 @@ export default class Icon extends React.Component {
       <MtSvgLines animate={ triggerSpinnerAnim } duration={ 1500 } stagger={ 20 } timing="linear" playback="2 alternate-reverse both">
         {/*<SvgSpinner />*/}
         <a href="" data-trigger={ 'triggerSpinnerAnim' } onClick={ this._handleAnimateClick }>
-          <svg viewBox="0 0 100 100" width="100" height="100">
+          <svg viewBox="0 0 100 100" width="100" height="100" preserveAspectRatio="xMidYMin">
             <g fill="none" strokeWidth="8" strokeMiterlimit="10" strokeLinecap="round">
               <path stroke="#444" d="M50 95C25.1 95 5 74.9 5 50S25.1 5 50 5s45 20.1 45 45c0 24.8-20.3 45-45 45"/>
               <path stroke="#777" d="M50 85c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.8 35-35 35"/>
