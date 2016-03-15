@@ -17,13 +17,16 @@
   "dependencies": {
     "domready": "^1.0.8",
     "mantra-core": "^1.2.0",
+    "pixi.js": "^3.0.9",
     "radium": "^0.16.6",
     "react": "^0.14.7",
     "react-burger-menu": "^1.5.2",
     "react-dom": "^0.14.7",
     "react-mounter": "^1.0.0",
     "react-mt-svg-lines": "^0.4.4",
-    "react-soundplayer": "^0.3.1"
+    "react-soundplayer": "^0.3.1",
+    "react-waypoint": "^1.3.0",
+    "three": "^0.74.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
