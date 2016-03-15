@@ -10,10 +10,7 @@ const Layout = ({content = () => null }) => (
       <sections>
         <section className="box">
           <header>Again</header>
-          {/*<Navigation />*/}
-          {/*<MtSvgLines duration={ 1500 } stagger={ 20 } timing="linear" playback="2 alternate-reverse both">
-            <SvgSpinner />
-          </MtSvgLines>*/}
+          <Navigation />
         </section>
         <section className="box">
           <div>
