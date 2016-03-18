@@ -4,6 +4,23 @@
 
 # BRANCH STATUS
 
+## Issues with `cosmos:browserify`, `react-runtime-dev`, etc.
+
+```
+=> Errors prevented startup:
+
+   While processing files with cosmos:browserify (for target web.browser):
+   packages/react-runtime-dev/react.browserify.js: Cannot call method 'slice' of undefined
+
+   While minifying app stylesheet:
+   error: Can't load npm module 'autoprefixer' from packages/minifier-postcss_plugin.js. Check your Npm.depends().
+
+   While processing files with cosmos:browserify (for target os.osx.x86_64):
+   packages/react-runtime-dev/react.browserify.js: Cannot call method 'slice' of undefined
+```
+
+---
+
 There are some issues here with just getting it to start. Maybe with using Meteor 1.3b11 and Meteor-Webpack (which hasn't been updated yet).
 
 See
