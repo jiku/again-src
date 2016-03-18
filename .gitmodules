@@ -3,6 +3,6 @@
 	url = file:///Volumes/Data/Dev/Libraries/Meteor/jiku:visualizers/.git
 	ignore = dirty
 [submodule "node_modules/react-burger-menu"]
-	path = .meteor/local/webpack-npm/node_modules/react-burger-menu
+	path = node_modules/react-burger-menu
 	url = file:///Volumes/Data/Dev/Components/Menus/react-burger-menu/.git
 	ignore = dirty
