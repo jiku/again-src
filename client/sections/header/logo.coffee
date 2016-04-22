@@ -1,3 +1,5 @@
+SiteEvent = require '/client/events.coffee'
+
 Template.logo.rendered = ->
   @$('div').addClass 'fadein'
 

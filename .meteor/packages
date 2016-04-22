@@ -7,15 +7,12 @@
 webapp
 raix:eventemitter
 infinitedg:tween
-hipstersmoothie:scrollmagic
 chuangbo:marked
 lalomartins:markd
 coffeescript
 qazuor:animated-border-menus
-react-runtime
 ccorcos:cjsx
 jiku:visualizers
-standard-minifiers
 meteor-base
 mobile-experience
 blaze-html-templates
@@ -32,13 +29,16 @@ kadira:blaze-layout
 jiku:env
 jiku:progress
 jiku:scroll
+jiku:datgui
 meteorhacks:fast-render
 okgrow:analytics
-kadira:debug
+# kadira:debug
 themeteorchef:bert
 mquandalle:jade
 react-template-helper
-webpack:webpack
 jiku:modernizr
-kit:cssnext
-kit:cssnext-basscss
+jiku:cdn
+browser-policy
+ecmascript
+juliancwirko:postcss@1.0.0
+standard-minifier-js

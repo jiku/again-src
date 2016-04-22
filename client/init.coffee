@@ -1,45 +1,12 @@
+SiteEvent = require '/client/events.coffee'
+Data = require '/client/data.coffee'
+marked = require('meteor/chuangbo:marked').marked
+
 Meteor.startup ->
   BlazeLayout.setRoot '#container'
 
-  @jiku = @jiku || {}
-  @jiku.again = @jiku.again || {}
-
-  @jiku.again.layouts = [
-    name: 'normal'
-    templates: [
-      { name: 'pane' }
-      { name: 'particles' }
-      {
-        name: 'sections'
-        sections: [
-          'header'
-          'about'
-          'player'
-          'contribute'
-          'footer'
-        ]
-      }
-      { name: 'menu' }
-    ]
-  ]
-
-  @jiku.again.sections = [
-    'header'
-    'about'
-    'player'
-    'contribute'
-    'footer'
-  ]
-  if (Meteor.settings.env is 'dev') then @jiku.again.sections.splice(2, 0, 'crappycrap')
-
-  @jiku.again.base_uri = Meteor.settings.public.base_uri
-  @jiku.again.externalDirect = false
-  @jiku.again.lastPath = ''
-
   Session.setDefault 'state', 'init'
   Session.set 'goTo', false
-
-  @SiteEvent = new EventEmitter
 
   if Meteor.settings.public.debugAnalytics then analytics.debug() else analytics.debug(false)
   analytics.identify '123', name: 'Anonymous'
@@ -47,7 +14,7 @@ Meteor.startup ->
   marked.setOptions breaks: true
 
   onLayout = (data) ->
-    layout = _.find jiku.again.layouts, (l) ->
+    layout = _.find Data.site.layouts, (l) ->
       l.name is 'normal'
 
     template = _.find layout.templates, (t) ->
@@ -59,7 +26,7 @@ Meteor.startup ->
       Session.set 'state', 'normal'
 
       _.delay -> SiteEvent.emit 'activate', {}, 100
-      if jiku.again.externalDirect
+      if Data.site.externalDirect
         _.delay -> SiteEvent.emit 'activateExtra', {}, 100
       _.each layout.templates, (t) -> t.state = ''
   SiteEvent.on 'layout', onLayout
@@ -68,7 +35,7 @@ Meteor.startup ->
     unless Session.equals("lastHistory", e.id)
       Session.set "lastHistory", e.id
       document.title = "Again (jiku): #{e.id}"
-      window.history.pushState {}, "Again (jiku): #{e.id}", "#{jiku.again.base_uri + e.id}"
+      window.history.pushState {}, "Again (jiku): #{e.id}", "#{Data.site.base_uri + e.id}"
       analytics.page e.id
   SiteEvent.on 'setHistory', onSetHistory
 

@@ -1,13 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Lato)
 
-/* TODO: Use base_uri var? */
 @font-face
   font-family jikutypeVector
   src:
     url('/again/jikutype-001-Vector.woff2') format('woff2'),
     url('/again/jikutype-001-Vector.woff') format('woff')
-
-@require 'vars.styl'
 
 html, body
   margin 0
@@ -23,18 +20,25 @@ body
   width 100%
   height 100%
 
-a
-  transition color .1s .1s
+sections
+  position absolute
+  z-index 1000
+  color #fff
+  width 100%
+  display flex
+  flex-direction column
+  align-items center
+  align-self center
+  justify-content center
 
-a, a:hover, a:active, a.active
-  text-decoration none
+section
+  /* width auto !important */ /* real browsers */
+  min-width 80% /* real browsers */
+  max-width 80%
+  height auto !important /* real browsers */
+  min-height 100% /* real browsers */
 
-a, a:visited
-  color linkColor
-
-a:hover, a:active, a.active
-  color highlightColor
-  background-size 100% 100%
+@require 'links.styl'
 
 // FOR CONTENT IN 100% CONTAINER
 .center
@@ -77,18 +81,24 @@ a:hover, a:active, a.active
   100%
     opacity 0
 
-#header, h1, h2, h3, h4, h5, h6
+section#header, h1, h2, h3, h4, h5, h6
   font-family 'jikutypeVector'
+  color #fff
 
-#header
+section#header
   opacity .5
   font-size 2em
-  color #fff
+
+h1, h2, h3, h4, h5, h6
+  font-size 4px
 
 subheader, .box
   font-family 'Lato', 'Menlo', sans-serif
   font-size 1em
   color #bbb
+
+sub
+  color #999
 
 .disable-scroll
   overflow hidden
@@ -111,6 +121,27 @@ subheader, .box
   padding auto
   border 1px
   border-color #f00
+
+.box
+  margin 0 auto
+  text-align center
+  display block
+  width 30%
+  height auto
+  padding .8em
+  margin-bottom 24px
+  background-color #000
+  border 1px dotted rgba(0,0,0,.1)
+  border-radius 8pt
+  background linear-gradient(top, #111, #000)
+  box-shadow rgba(95, 95, 95, .1) 1pt 1pt 1pt
+  opacity .7
+
+// MARKDOWN STYLING
+
+section > hr
+  width 1%
+  opacity .1
 
 #pane
   position fixed

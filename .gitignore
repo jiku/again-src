@@ -1,5 +1,10 @@
+public/
+*.*UNUSED
 packages/
-!packages/jiku:visualizers/
-dev*.json
-pro*.json
+/dev*.json
+/pro*.json
+Dockerfile
 node_modules/
+**/*.log
+.imdone/
+.meteor/local/

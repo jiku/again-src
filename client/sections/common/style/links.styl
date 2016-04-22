@@ -1,0 +1,36 @@
+@require 'vars.styl'
+
+a
+  transition color .1s .1s
+
+a, a:hover, a:active, a.active
+  text-decoration none
+
+subsection
+  a
+    padding 0em .2em
+    margin 0 -2px
+    white-space nowrap
+    border-bottom 1px borderStyle borderColor
+    border-radius .3em
+    background linear-gradient(gradientTop, gradientBottom) no-repeat bottom
+    background-size 100% 0px
+    transition background-size .2s
+
+  a[href^=http]
+    margin-right .8em
+  a[href^=http]:after
+    content ''
+    position absolute
+    width 1em
+    height 1em
+    background url(/again/external.svg)
+    background-size 150%
+    background-position -.25em -3.25em
+
+a, a:visited
+  color linkColor
+
+a:hover, a:active, a.active
+  color highlightColor
+  background-size 100% 100%

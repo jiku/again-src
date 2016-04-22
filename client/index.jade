@@ -7,7 +7,6 @@ body(class='disable-scroll')
 template(name='layoutNormal')
 	#static
 		+Template.dynamic(template=pane)
-		+Template.dynamic(template=soundcloud)
 		+Template.dynamic(template=particles)
 	+Template.dynamic(template=sections)
 	#staticFront
@@ -24,12 +23,12 @@ template(name='sections')
 			section#player.box
 				+markdown
 					{{>player}}
-				.react
-					+React(component=reactComponent)
-			if isDev
-				section#crappycrap.box
-					+markdown
-						{{>crappycrap}}
+				#player.react
+					+React(component=Player)
+			//- if isDev
+			//- 	section#crappycrap.box
+			//- 		+markdown
+			//- 			{{>crappycrap}}
 			section#contribute.box
 				+markdown
 					{{>contribute}}
@@ -52,13 +51,13 @@ template(name='menu')
 				span Menu
 			ul
 			ul
-				li: a(href="{{uri 'header'}}"): i.fa.fa-arrow-up
-				li: a(href="{{uri 'about'}}") about
-				li: a(href="{{uri 'player'}}") player
-				if isDev
-					li: a(href="{{uri 'crappycrap'}}") crappycrap
-				li: a(href="{{uri 'contribute'}}") contribute
-				li: a(href="{{uri 'footer'}}"): i.fa.fa-arrow-down
+				li: a#header(href="{{uri 'header'}}"): i.fa.fa-arrow-up
+				li: a#about(href="{{uri 'about'}}") about
+				li: a#player(href="{{uri 'player'}}") player
+				//- if isDev
+					//- li: a#crappycrap(href="{{uri 'crappycrap'}}") crappycrap
+				li: a#contribute(href="{{uri 'contribute'}}") contribute
+				li: a#footer(href="{{uri 'footer'}}"): i.fa.fa-arrow-down
 
 template(name='pane')
 	#pane

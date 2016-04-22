@@ -1,3 +1,6 @@
+React = require 'react'
+Data = require '/client/data.coffee'
+
 Icon = React.createClass
   propTypes:
     icon: React.PropTypes.object.isRequired
@@ -9,7 +12,7 @@ Icon = React.createClass
 
 Social = React.createClass
   getIcons: ->
-    staticData.social_links
+    Data.site.links.social
 
   renderIcons: ->
     @getIcons().map((icon) =>

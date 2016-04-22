@@ -1,3 +1,10 @@
+SiteEvent = require '/client/events.coffee'
+Data = require '/client/data.coffee'
+ScrollMagic = require 'scrollmagic'
+require 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js'
+require 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
+GSAP = require 'gsap'
+
 controller = new ScrollMagic.Controller
 
 controller.scrollTo (target, time = 0.5) ->
@@ -50,19 +57,18 @@ onActivateExtra = (e) ->
   SiteEvent.emit 'play', { randomize: true } if Meteor.settings.public.soundcloud.active
 
 $(document).on 'click', 'a[href^="/"]', (e) ->
-  id = $(this).attr('href').split(jiku.again.base_uri)[1]
-  if not (_.isEmpty($("##{id}"))) or (id is FlowRouter.current().path.split(jiku.again.base_uri)[1])
-  # if ($("##{id}").length > 0) or (id is FlowRouter.current().path.split('/')[1])
+  id = $(this).attr('href').split(Data.site.base_uri)[1]
+  if not (_.isEmpty($("##{id}"))) or (id is FlowRouter.current().path.split(Data.site.base_uri)[1])
     e.preventDefault()
     SiteEvent.emit 'setHistory', { id: id }
     SiteEvent.emit 'scrollTo', { position: id }
 
 Template.sections.rendered = ->
-  _.each jiku.again.sections, (section, i) ->
+  _.each Data.site.sections, (section, i) ->
     scene = new ScrollMagic.Scene(
       triggerElement: 'section#' + section
-      triggerHook: _.contains(["0", "#{jiku.again.sections.length - 1}"], i) and "onEnter" or "onLeave"
-      offset: _.contains(["0", "#{jiku.again.sections.length - 1}"], i) and "0" or "1"
+      triggerHook: _.contains(["0", "#{Data.site.sections.length - 1}"], i) and "onEnter" or "onLeave"
+      offset: _.contains(["0", "#{Data.site.sections.length - 1}"], i) and "0" or "1"
       )
       .setClassToggle 'a#' + section, 'active'
       .setTween(TweenMax.to('section#' + section, 1, transform: 'opacity(1)', ease: Linear.easeNone))
@@ -72,7 +78,7 @@ Template.sections.rendered = ->
           SiteEvent.emit 'setHistory', { id: @triggerElement?().id }
     scene.addIndicators name: 'SECTION ' + section if Session.get("env") is "dev"
 
-    if (jiku.again.sections.length - 1 is i) and (FlowRouter.getParam 'scrollTo')
+    if (Data.site.sections.length - 1 is i) and (FlowRouter.getParam 'scrollTo')
       SiteEvent.emit 'scrollTo', { position: FlowRouter.getParam 'scrollTo' }
 
   SiteEvent.emit 'layout', { template: 'sections', state: 'rendered' }
@@ -86,4 +92,4 @@ Template.layoutNormal.rendered = ->
   SiteEvent.emit 'layout', { template: 'container', state: 'rendered' }
 
 Template.registerHelper "uri", (suffix) ->
-  jiku.again.base_uri + suffix
+  Data.site.base_uri + suffix

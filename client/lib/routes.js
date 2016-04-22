@@ -1,4 +1,10 @@
-import Soundplayer from 'Soundplayer/client/Soundplayer';
+import {BlazeLayout} from 'meteor/kadira:blaze-layout';
+import {FlowRouter} from 'meteor/kadira:flow-router';
+// import {Soundplayer} from '/imports/modules/Soundplayer/client/Soundplayer.jsx';
+import {SiteEvent} from '/client/events.coffee';
+import Data from '/client/data.coffee';
+
+FlowRouter.wait();
 
 var render = function(args) {
   BlazeLayout.render('layoutNormal', {
@@ -11,7 +17,7 @@ var render = function(args) {
 
 FlowRouter.route('/', {
   name: 'home',
-  reactComponent: function() { return Soundplayer; },
+  // reactComponent: function() { return Soundplayer; },
   action: function(params, queryParams) {
     render();
   }
@@ -22,21 +28,21 @@ FlowRouter.route('/:scrollTo', {
   reactComponent: function() { return Soundplayer; },
   triggersEnter: [
     function(context, redirect) {
-      if (!_.contains(jiku.again.sections, context.path.split('/')[1])) {
+      if (!_.contains(Data.site.sections, context.path.split('/')[1])) {
         redirect('/');
       }
     }
   ],
   action: function(params, queryParams) {
-    if (_.isEmpty(jiku.again.lastPath) && (_.contains(jiku.again.sections, params.scrollTo))) {
-      jiku.again.externalDirect = true;
+    if (_.isEmpty(Data.site.lastPath) && (_.contains(Data.site.sections, params.scrollTo))) {
+      Data.site.externalDirect = true;
       render();
     }
   }
 });
 
 var setLastPath = function(context, redirect, stop) {
-  jiku.again.lastPath = context.path.split('/')[1];
+  Data.site.lastPath = context.path.split('/')[1];
 };
 
 FlowRouter.triggers.exit([setLastPath]);

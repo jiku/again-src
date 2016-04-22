@@ -1,3 +1,5 @@
+SiteEvent = require '/client/events.coffee'
+
 Template.menu.rendered = ->
   Meteor.borderMenu.init()
 
