@@ -1,6 +1,6 @@
 {
   "name": "jiku-again-src",
-  "version": "1.0.0",
+  "version": "0.2",
   "private": true,
   "description": "jiku/again on Meteor 1.3 (migrating to NPM modules)",
   "main": "client/main.coffee",
