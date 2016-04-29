@@ -6,5 +6,4 @@ packages/
 Dockerfile
 node_modules/
 **/*.log
-.imdone/
 .meteor/local/
