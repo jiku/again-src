@@ -4,10 +4,6 @@
   "private": true,
   "description": "jiku/again on Meteor 1.3 (migrating to NPM modules)",
   "main": "client/main.coffee",
-  "scripts": {
-    "test": "chimp",
-    "test-chimp": "chimp --ddp=http://dev.jiku:7777 --watch --mocha --path=tests"
-  },
   "author": "B.E. Henriksen (e@jiku.ca)",
   "license": "MIT",
   "dependencies": {
