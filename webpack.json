@@ -1,6 +1,0 @@
-{
-  "root": "src",
-  "devServer": {
-    "host": "localhost"
-  }
-}
