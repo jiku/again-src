@@ -1,8 +1,8 @@
 {
   "name": "jiku-again-src",
-  "version": "0.2",
+  "version": "0.2.0",
   "private": true,
-  "description": "jiku/again on Meteor 1.3 (migrating to NPM modules)",
+  "description": "jiku/again on Meteor 1.3",
   "main": "client/main.coffee",
   "author": "B.E. Henriksen (e@jiku.ca)",
   "license": "MIT",
