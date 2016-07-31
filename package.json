@@ -4,6 +4,11 @@
   "private": true,
   "description": "jiku/again on Meteor 1.4",
   "main": "client/main.coffee",
+  "scripts": {
+    "start": "ROOT_URL=http://dev.jiku/again/ meteor --port 7777 --settings dev.json",
+    "update:check": "npm-check && ncu",
+    "update": "npm-check -u && ncu -u"
+  },
   "author": "B.E. Henriksen (e@jiku.ca)",
   "license": "MIT",
   "dependencies": {
