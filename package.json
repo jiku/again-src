@@ -12,7 +12,6 @@
     "react-dom": "^15.3.0",
     "react-mixin": "^3.0.3",
     "scrollmagic": "2.0.5",
-    "react-soundplayer": "file:/Volumes/Data/Dev/Libraries/NPM/react-soundplayer"
     "gsap": "^1.18.2"
   }
 }

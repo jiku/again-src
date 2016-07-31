@@ -1,6 +1,4 @@
-React = require 'react'
-Player = require '/imports/modules/Soundplayer/client/Soundplayer.jsx'
+Player = require('@jiku/again-player').default
 
 Template.sections.helpers
-  Player: ->
-    Player.default
+  Player: -> Player
