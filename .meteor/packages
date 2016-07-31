@@ -4,26 +4,26 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-webapp
+webapp@1.3.10
 raix:eventemitter
 infinitedg:tween
 chuangbo:marked
 lalomartins:markd
-coffeescript
+coffeescript@1.2.3
 qazuor:animated-border-menus
 ccorcos:cjsx
 jiku:visualizers
-meteor-base
-mobile-experience
-blaze-html-templates
-session
-jquery
-tracker
-logging
-reload
-spacebars
+meteor-base@1.0.4
+mobile-experience@1.0.4
+blaze-html-templates@1.0.4
+session@1.1.6
+jquery@1.11.9
+tracker@1.1.0
+logging@1.1.14
+reload@1.1.10
+spacebars@1.0.12
 stolinski:stylus-multi
-service-configuration
+service-configuration@1.0.10
 kadira:flow-router
 kadira:blaze-layout
 jiku:env
@@ -38,7 +38,7 @@ mquandalle:jade
 react-template-helper
 jiku:modernizr
 jiku:cdn
-browser-policy
-ecmascript
+browser-policy@1.0.9
+ecmascript@0.5.7
 juliancwirko:postcss@1.0.0
-standard-minifier-js
+standard-minifier-js@1.1.8
