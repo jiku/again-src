@@ -33,6 +33,8 @@ ecmascript-runtime@0.3.12
 ecwyne:mathjs@2.7.0
 ejson@1.0.12
 fastclick@1.0.12
+fortawesome:fontawesome@4.4.0_1
+fourseven:scss@3.8.0_1
 geojson-utils@1.0.9
 hot-code-push@1.0.4
 html-tools@1.0.10
@@ -98,6 +100,7 @@ standard-minifier-js@1.1.8
 stolinski:stylus-multi@1.4.3
 templating@1.1.14
 templating-tools@1.0.4
+themeteorchef:bert@2.1.1
 tmeasday:check-npm-versions@0.3.1
 tracker@1.1.0
 ui@1.0.11
