@@ -12,7 +12,7 @@
   "author": "B.E. Henriksen (e@jiku.ca)",
   "license": "MIT",
   "dependencies": {
-    "meteor-node-stubs": "^0.2.1",
+    "meteor-node-stubs": "^0.3.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-mixin": "^3.0.3",
