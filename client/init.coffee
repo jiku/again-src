@@ -35,7 +35,7 @@ Meteor.startup ->
     unless Session.equals("lastHistory", e.id)
       Session.set "lastHistory", e.id
       document.title = "Again (jiku): #{e.id}"
-      window.history.pushState {}, "Again (jiku): #{e.id}", "#{Data.site.base_uri + e.id}"
+      window.history.pushState {}, "Again (jiku): #{e.id}", "#{Data.paths.site + e.id}"
       analytics.page e.id
   SiteEvent.on 'setHistory', onSetHistory
 

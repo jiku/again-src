@@ -1,6 +1,6 @@
 if Meteor.isServer
   Meteor.startup ->
-    WebAppInternals.setBundledJsCssPrefix Meteor.settings.public.cdn
+    # WebAppInternals.setBundledJsCssPrefix Meteor.settings.public.paths.cdn
 
     WebApp.rawConnectHandlers.use (req, res, next) ->
       res.setHeader 'cache-control', 'public'

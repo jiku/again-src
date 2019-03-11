@@ -35,7 +35,10 @@ data.site.sections = [
 ]
 # if (Meteor.settings.env is 'dev') then data.site.sections.splice(2, 0, 'crappycrap')
 
-data.site.base_uri = Meteor.settings.public.base_uri
+data.paths = {}
+data.paths.root = Meteor.settings.public.paths.root
+data.paths.site = Meteor.settings.public.paths.site + data.paths.root
+data.paths.cdn = Meteor.settings.public.paths.cdn + data.paths.root
 
 data.site.externalDirect = false
 data.site.lastPath = ''

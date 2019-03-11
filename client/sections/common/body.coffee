@@ -57,8 +57,8 @@ onActivateExtra = (e) ->
   SiteEvent.emit 'play', { randomize: true } if Meteor.settings.public.soundcloud.active
 
 $(document).on 'click', 'a[href^="/"]', (e) ->
-  id = $(this).attr('href').split(Data.site.base_uri)[1]
-  if not (_.isEmpty($("##{id}"))) or (id is FlowRouter.current().path.split(Data.site.base_uri)[1])
+  id = $(this).attr('href').split(Data.paths.root)[1]
+  if not (_.isEmpty($("##{id}"))) or (id is FlowRouter.current().path.split(Data.paths.root)[1])
     e.preventDefault()
     SiteEvent.emit 'setHistory', { id: id }
     SiteEvent.emit 'scrollTo', { position: id }
@@ -92,4 +92,4 @@ Template.layoutNormal.rendered = ->
   SiteEvent.emit 'layout', { template: 'container', state: 'rendered' }
 
 Template.registerHelper "uri", (suffix) ->
-  Data.site.base_uri + suffix
+  Data.paths.root + suffix
