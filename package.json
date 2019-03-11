@@ -5,6 +5,7 @@
   "description": "Source for jiku/again.",
   "scripts": {
     "start": "ROOT_URL=http://dev.jiku/again/ meteor --port 7777 --settings dev.json",
+    "debug": "npm run start -- --inspect-brk=0.0.0.0:9229",
     "update:check": "npm-check && ncu",
     "update": "npm-check -u && ncu -u"
   },
