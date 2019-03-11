@@ -30,7 +30,8 @@ trusted = [
   # 'cdn.jikudev.ca'
   # 'amazonaws.com'
   # '*.amazonaws.com'
-  'ec2-52-28-71-128.eu-central-1.compute.amazonaws.com'
+  'ec2-52-28-71-128.eu-central-1.compute.amazonaws.com',
+  '*.local'
 ]
 _.each trusted, (origin) ->
   BrowserPolicy.content.allowOriginForAll "http://#{origin}"
