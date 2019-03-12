@@ -6,9 +6,7 @@
   "scripts": {
     "start:pro": "ROOT_URL=http://jiku.ca/again/ meteor --port 7777 --settings pro.json",
     "start:dev": "ROOT_URL=http://visual.local/again/ meteor --port 7777 --settings dev.json",
-    "debug": "npm run start -- --inspect-brk=0.0.0.0:9229",
-    "update:check": "npm-check && ncu",
-    "update": "npm-check -u && ncu -u"
+    "debug": "npm run start -- --inspect-brk=0.0.0.0:9229"
   },
   "author": "B.E. Henriksen (e@jiku.ca)",
   "license": "MIT",
