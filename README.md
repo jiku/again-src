@@ -6,4 +6,4 @@
 [![Dependency Status](https://david-dm.org/jiku/again-src.svg)](https://david-dm.org/jiku/again-src)
 [![devDependency Status](https://david-dm.org/jiku/again-src/dev-status.svg)](https://david-dm.org/jiku/again-src#info=devDependencies)
 
-[![Meteor: Version](https://img.shields.io/badge/meteor-v1.7.1-rc.12-yellow.svg)](http://github.com/jiku/again-src/tree/master/.meteor)
+[![Meteor: Version](https://img.shields.io/badge/meteor-v1.7.1_rc.12-yellow.svg)](http://github.com/jiku/again-src/tree/master/.meteor)
