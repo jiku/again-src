@@ -1,6 +1,6 @@
 {
   "name": "jiku-again-src",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "description": "Source for jiku/again.",
   "scripts": {
@@ -11,14 +11,14 @@
   "author": "B.E. Henriksen (e@jiku.ca)",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "7.0.0-beta.55",
+    "@babel/runtime": "latest",
     "postcss": "^6.0.22",
     "postcss-load-config": "^1.2.0",
     "gsap": "^1.18.2",
     "meteor-node-stubs": "^0.4.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-mixin": "^3.0.3",
+    "react-mixin": "^5.0.0",
     "scrollmagic": "2.0.5"
   }
 }
