@@ -13,7 +13,7 @@
   "dependencies": {
     "@babel/runtime": "latest",
     "postcss": "^6.0.22",
-    "postcss-load-config": "^1.2.0",
+    "postcss-load-config": "^2.1.0",
     "gsap": "^1.18.2",
     "meteor-node-stubs": "^0.4.1",
     "react": "^15.3.0",
