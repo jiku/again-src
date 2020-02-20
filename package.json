@@ -15,7 +15,7 @@
     "postcss": "^6.0.22",
     "postcss-load-config": "^1.2.0",
     "gsap": "^1.18.2",
-    "meteor-node-stubs": "^0.4.1",
+    "meteor-node-stubs": "^1.0.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-mixin": "^5.0.0",
